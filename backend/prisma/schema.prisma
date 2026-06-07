@@ -1,0 +1,271 @@
+// ═══════════════════════════════════════════════════════════════
+// HexaShield Security — Prisma Schema
+// ═══════════════════════════════════════════════════════════════
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ── Enums ────────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  ANALYST
+  CLIENT
+}
+
+enum EngagementType {
+  VAPT
+  AUDIT
+  CONSULTANCY
+  SOC
+  TRAINING
+  APPSEC
+  RETEST
+}
+
+enum EngagementStatus {
+  SCHEDULED
+  IN_PROGRESS
+  IN_REVIEW
+  COMPLETE
+}
+
+enum Severity {
+  CRITICAL
+  HIGH
+  MEDIUM
+  LOW
+  INFORMATIONAL
+}
+
+enum FindingStatus {
+  OPEN
+  IN_PROGRESS
+  FIXED
+  ACCEPTED
+  FALSE_POSITIVE
+}
+
+enum ReportType {
+  TECHNICAL
+  EXECUTIVE
+  GAP_ANALYSIS
+  CERTIFICATE
+  RETEST
+}
+
+// ── Models ───────────────────────────────────────────────────
+
+model Organisation {
+  id           String   @id @default(uuid())
+  name         String
+  domain       String
+  industry     String
+  contactEmail String
+  contactPhone String
+  address      String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  users              User[]
+  engagements        Engagement[]
+  contactSubmissions ContactSubmission[]
+
+  @@map("organisations")
+}
+
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  passwordHash      String
+  firstName         String
+  lastName          String
+  role              Role
+  phone             String?
+  totpSecret        String?
+  totpEnabled       Boolean   @default(false)
+  twoFactorVerified Boolean   @default(false)
+  lastLogin         DateTime?
+  loginAttempts     Int       @default(0)
+  lockedUntil       DateTime?
+  orgId             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  organisation        Organisation?   @relation(fields: [orgId], references: [id], onDelete: SetNull)
+  refreshTokens       RefreshToken[]
+  auditLogs           AuditLog[]
+  uploadedReports     Report[]        @relation("UploadedBy")
+  assignedEngagements Engagement[]    @relation("AssignedAnalyst")
+  findingUpdates      FindingUpdate[]
+  downloadLogs        DownloadLog[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid())
+  token     String
+  userId    String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("refresh_tokens")
+}
+
+model Engagement {
+  id          String           @id @default(uuid())
+  refId       String           @unique
+  name        String
+  type        EngagementType
+  status      EngagementStatus @default(SCHEDULED)
+  progress    Int              @default(0)
+  scope       String           @db.Text
+  startDate   DateTime
+  dueDate     DateTime
+  completedAt DateTime?
+  orgId       String
+  analystId   String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  organisation Organisation @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  analyst      User?        @relation("AssignedAnalyst", fields: [analystId], references: [id], onDelete: SetNull)
+  findings     Finding[]
+  reports      Report[]
+
+  @@index([orgId])
+  @@index([analystId])
+  @@index([status])
+  @@map("engagements")
+}
+
+model Finding {
+  id           String        @id @default(uuid())
+  refId        String        @unique
+  title        String
+  severity     Severity
+  cvss         Float
+  description  String        @db.Text
+  remediation  String        @db.Text
+  references   String[]
+  status       FindingStatus @default(OPEN)
+  fixedAt      DateTime?
+  engagementId String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  engagement Engagement      @relation(fields: [engagementId], references: [id], onDelete: Cascade)
+  updates    FindingUpdate[]
+
+  @@index([engagementId])
+  @@index([severity])
+  @@index([status])
+  @@map("findings")
+}
+
+model FindingUpdate {
+  id             String        @id @default(uuid())
+  note           String        @db.Text
+  previousStatus FindingStatus
+  newStatus      FindingStatus
+  userId         String
+  findingId      String
+  createdAt      DateTime      @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  finding Finding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+
+  @@index([findingId])
+  @@map("finding_updates")
+}
+
+model Report {
+  id           String     @id @default(uuid())
+  name         String
+  type         ReportType
+  version      String     @default("v1.0")
+  storageKey   String
+  sizeBytes    Int
+  notifyClient Boolean    @default(false)
+  visibility   String     @default("private")
+  accessExpiry DateTime?
+  engagementId String
+  uploadedById String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  engagement   Engagement    @relation(fields: [engagementId], references: [id], onDelete: Cascade)
+  uploadedBy   User          @relation("UploadedBy", fields: [uploadedById], references: [id], onDelete: Cascade)
+  downloadLogs DownloadLog[]
+
+  @@index([engagementId])
+  @@map("reports")
+}
+
+model DownloadLog {
+  id           String   @id @default(uuid())
+  reportId     String
+  userId       String
+  ip           String
+  userAgent    String
+  downloadedAt DateTime @default(now())
+
+  report Report @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([reportId])
+  @@map("download_logs")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  action     String
+  userId     String
+  resourceId String?
+  ip         String
+  userAgent  String
+  statusCode Int
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model ContactSubmission {
+  id              String   @id @default(uuid())
+  firstName       String
+  lastName        String
+  email           String
+  phone           String
+  orgName         String
+  orgSize         String
+  services        String[]
+  budget          String
+  timeline        String
+  scope           String   @db.Text
+  notes           String?  @db.Text
+  referenceNumber String   @unique
+  orgId           String?
+  createdAt       DateTime @default(now())
+
+  organisation Organisation? @relation(fields: [orgId], references: [id], onDelete: SetNull)
+
+  @@index([referenceNumber])
+  @@map("contact_submissions")
+}
