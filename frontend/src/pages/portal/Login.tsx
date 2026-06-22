@@ -9,7 +9,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import HexLogo from '@/components/ui/HexLogo';
+import Logo from '@/components/ui/Logo';
 import { FieldWrap, Input } from '@/components/ui/FormField';
 import { useAuthStore } from '@/lib/store';
 import type { User } from '@/lib/types';
@@ -191,15 +191,7 @@ const Login: React.FC = () => {
         <div className="relative z-10">
           {/* Logo + Name */}
           <div className="flex items-center gap-4 mb-16">
-            <HexLogo size={52} animated />
-            <div>
-              <h1 className="font-display text-2xl font-extrabold text-text tracking-tight">
-                AURONIX
-              </h1>
-              <p className="font-mono text-xs text-accent uppercase tracking-[0.3em]">
-                SECURITY
-              </p>
-            </div>
+            <Logo size={64} />
           </div>
 
           {/* Tagline */}
@@ -244,10 +236,7 @@ const Login: React.FC = () => {
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="lg:hidden flex items-center gap-3 mb-10">
-            <HexLogo size={40} />
-            <span className="font-display text-xl font-extrabold text-text">
-              AURONIX
-            </span>
+            <Logo size={48} />
           </div>
 
           {step === 'credentials' ? (

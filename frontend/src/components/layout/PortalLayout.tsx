@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
-import HexLogo from '@/components/ui/HexLogo';
+import Logo from '@/components/ui/Logo';
 
 interface NavItem {
   to: string;
@@ -124,10 +124,7 @@ const PortalLayout: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center gap-3 px-4 h-16 border-b border-border flex-shrink-0">
           <Link to="/portal/dashboard" className="flex items-center gap-3">
-            <HexLogo size={28} />
-            {!sidebarCollapsed && (
-              <span className="font-display text-sm font-bold text-text">AURONIX</span>
-            )}
+            <Logo size={sidebarCollapsed ? 28 : 36} />
           </Link>
         </div>
 
@@ -203,8 +200,7 @@ const PortalLayout: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <HexLogo size={24} />
-            <span className="font-display text-sm font-bold text-text">AURONIX</span>
+            <Logo size={28} />
           </div>
           <div className={`pill ${roleColors[user.role]}`}>{user.role}</div>
         </div>
@@ -217,8 +213,7 @@ const PortalLayout: React.FC = () => {
           <div className="absolute top-0 left-0 bottom-0 w-72 bg-bg-2 border-r border-border animate-fade-in">
             <div className="flex items-center justify-between px-4 h-14 border-b border-border">
               <div className="flex items-center gap-3">
-                <HexLogo size={24} />
-                <span className="font-display text-sm font-bold text-text">AURONIX</span>
+                <Logo size={28} />
               </div>
               <button onClick={() => setMobileMenuOpen(false)} className="p-1 text-text-3">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

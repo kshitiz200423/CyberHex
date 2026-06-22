@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import HexLogo from '@/components/ui/HexLogo';
+import Logo from '@/components/ui/Logo';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -55,16 +55,8 @@ const PublicLayout: React.FC = () => {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <HexLogo size={36} />
-              <div className="flex flex-col">
-                <span className="font-display text-lg font-bold text-text group-hover:text-accent transition-colors">
-                  AURONIX
-                </span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-text-3 -mt-0.5">
-                  SECURITY
-                </span>
-              </div>
+            <Link to="/" className="flex items-center group">
+              <Logo size={44} />
             </Link>
 
             {/* Desktop nav */}
@@ -169,14 +161,8 @@ const PublicLayout: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div className="lg:col-span-1">
-              <Link to="/" className="flex items-center gap-3 mb-4">
-                <HexLogo size={32} />
-                <div>
-                  <span className="font-display text-base font-bold text-text">AURONIX</span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-text-3 block">
-                    SECURITY
-                  </span>
-                </div>
+              <Link to="/" className="flex items-center mb-4">
+                <Logo size={48} />
               </Link>
               <p className="text-sm text-text-2 leading-relaxed mb-4">
                 Enterprise-grade cybersecurity solutions for Indian SMEs and educational institutions.
