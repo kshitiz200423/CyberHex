@@ -95,7 +95,7 @@ const PortalLayout: React.FC = () => {
   const navigate = useNavigate();
 
   // Mock user — will be replaced with Zustand store
-  const user = { firstName: 'Kshitiz', lastName: 'Admin', role: 'ADMIN', email: 'admin@hexashield.in' };
+  const user = { firstName: 'Kshitiz', lastName: 'Admin', role: 'ADMIN', email: 'admin@auronix.in' };
 
   const handleLogout = useCallback(() => {
     navigate('/portal/login');
@@ -126,7 +126,7 @@ const PortalLayout: React.FC = () => {
           <Link to="/portal/dashboard" className="flex items-center gap-3">
             <HexLogo size={28} />
             {!sidebarCollapsed && (
-              <span className="font-display text-sm font-bold text-text">HEXASHIELD</span>
+              <span className="font-display text-sm font-bold text-text">AURONIX</span>
             )}
           </Link>
         </div>
@@ -204,7 +204,7 @@ const PortalLayout: React.FC = () => {
               </svg>
             </button>
             <HexLogo size={24} />
-            <span className="font-display text-sm font-bold text-text">HEXASHIELD</span>
+            <span className="font-display text-sm font-bold text-text">AURONIX</span>
           </div>
           <div className={`pill ${roleColors[user.role]}`}>{user.role}</div>
         </div>
@@ -218,7 +218,7 @@ const PortalLayout: React.FC = () => {
             <div className="flex items-center justify-between px-4 h-14 border-b border-border">
               <div className="flex items-center gap-3">
                 <HexLogo size={24} />
-                <span className="font-display text-sm font-bold text-text">HEXASHIELD</span>
+                <span className="font-display text-sm font-bold text-text">AURONIX</span>
               </div>
               <button onClick={() => setMobileMenuOpen(false)} className="p-1 text-text-3">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

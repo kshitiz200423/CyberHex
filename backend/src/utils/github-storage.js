@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — GitHub-Based File Storage
+// Auronix Technologies — GitHub-Based File Storage
 // ═══════════════════════════════════════════════════════════════
 // Reports stored in a private GitHub repo via Contents API.
 // Falls back to local filesystem if GITHUB_STORAGE_TOKEN is not set.
@@ -26,7 +26,7 @@ function githubHeaders() {
     Authorization: `Bearer ${GITHUB_TOKEN}`,
     Accept: 'application/vnd.github.v3+json',
     'Content-Type': 'application/json',
-    'User-Agent': 'HexaShield-Backend/1.0',
+    'User-Agent': 'Auronix-Backend/1.0',
   };
 }
 

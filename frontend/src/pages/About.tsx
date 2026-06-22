@@ -36,7 +36,7 @@ const About: React.FC = () => (
           <span className="text-gradient">Digital Future</span>
         </h1>
         <p className="text-lg text-text-2 leading-relaxed">
-          HexaShield Security was founded by cybersecurity professionals who saw a gap in the Indian market: SMEs and educational institutions
+          Auronix Technologies was founded by cybersecurity professionals who saw a gap in the Indian market: SMEs and educational institutions
           needed access to the same calibre of security services that large enterprises receive — but at a price point that makes sense.
           Based in Bareilly, Uttar Pradesh, we serve organisations across India with professional, thorough, and affordable cybersecurity solutions.
         </p>
@@ -63,7 +63,7 @@ const About: React.FC = () => (
       <div className="container-custom">
         <div className="text-center mb-12">
           <p className="mono-label text-[11px] text-accent mb-3">OUR TEAM</p>
-          <h2 className="font-display text-3xl font-bold text-text">The Experts Behind HexaShield</h2>
+          <h2 className="font-display text-3xl font-bold text-text">The Experts Behind Auronix</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {TEAM.map((member, i) => (
@@ -80,7 +80,7 @@ const About: React.FC = () => (
       </div>
     </section>
 
-    {/* Why HexaShield */}
+    {/* Why Auronix */}
     <section className="section">
       <div className="container-custom">
         <div className="text-center mb-12">

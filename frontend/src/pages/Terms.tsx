@@ -14,18 +14,18 @@ const Terms: React.FC = () => (
         <div className="space-y-8 text-text-2 text-sm leading-relaxed">
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">1. Service Description</h2>
-            <p>HexaShield Security provides cybersecurity services including vulnerability assessment, penetration testing (VAPT), security audits, consultancy, managed SOC monitoring, security training, and cloud/application security assessments ("Services") to client organisations ("Client").</p>
+            <p>Auronix Technologies provides cybersecurity services including vulnerability assessment, penetration testing (VAPT), security audits, consultancy, managed SOC monitoring, security training, and cloud/application security assessments ("Services") to client organisations ("Client").</p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">2. Client Authorisation for Security Testing</h2>
             <div className="card bg-brand-red/5 border-brand-red/20">
               <p className="text-text font-medium mb-2">⚠️ Critical Legal Clause</p>
-              <p>By engaging HexaShield for VAPT or any security testing service, the Client explicitly authorises HexaShield to conduct security testing against the specified systems within the agreed scope. This authorisation is essential to ensure all testing activities are lawful under the Information Technology Act 2000 (Section 43, 65, 66). The Client warrants that they have the legal authority to authorise such testing and that no third-party systems outside the agreed scope will be tested.</p>
+              <p>By engaging Auronix for VAPT or any security testing service, the Client explicitly authorises Auronix to conduct security testing against the specified systems within the agreed scope. This authorisation is essential to ensure all testing activities are lawful under the Information Technology Act 2000 (Section 43, 65, 66). The Client warrants that they have the legal authority to authorise such testing and that no third-party systems outside the agreed scope will be tested.</p>
             </div>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">3. Portal Acceptable Use</h2>
-            <p>The HexaShield client portal is provided for the sole purpose of accessing engagement-related information, reports, and findings. Users must not attempt to access data belonging to other organisations, reverse-engineer the portal, or share portal credentials. Any security concerns should be reported to <a href="mailto:security@hexashield.in" className="text-accent">security@hexashield.in</a>.</p>
+            <p>The Auronix client portal is provided for the sole purpose of accessing engagement-related information, reports, and findings. Users must not attempt to access data belonging to other organisations, reverse-engineer the portal, or share portal credentials. Any security concerns should be reported to <a href="mailto:security@auronix.in" className="text-accent">security@auronix.in</a>.</p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">4. Confidentiality & NDA</h2>
@@ -43,15 +43,15 @@ const Terms: React.FC = () => (
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">6. Intellectual Property</h2>
-            <p>All reports, methodologies, tools, and deliverables created by HexaShield remain the intellectual property of HexaShield Security. The Client receives a non-exclusive, non-transferable licence to use deliverables for internal security improvement purposes only. Reports may not be shared with third parties without written consent.</p>
+            <p>All reports, methodologies, tools, and deliverables created by Auronix remain the intellectual property of Auronix Technologies. The Client receives a non-exclusive, non-transferable licence to use deliverables for internal security improvement purposes only. Reports may not be shared with third parties without written consent.</p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">7. Limitation of Liability</h2>
-            <p>HexaShield's total liability under any engagement shall not exceed the total fees paid by the Client for that engagement in the preceding 3 months. HexaShield shall not be liable for indirect, incidental, consequential, or punitive damages. Security testing inherently carries risk; while we take all reasonable precautions, we cannot guarantee that testing will not cause disruption.</p>
+            <p>Auronix's total liability under any engagement shall not exceed the total fees paid by the Client for that engagement in the preceding 3 months. Auronix shall not be liable for indirect, incidental, consequential, or punitive damages. Security testing inherently carries risk; while we take all reasonable precautions, we cannot guarantee that testing will not cause disruption.</p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">8. Indemnification</h2>
-            <p>The Client agrees to indemnify and hold harmless HexaShield against any claims, damages, or expenses arising from the Client's failure to provide accurate scope information, unauthorised use of HexaShield's deliverables, or testing conducted on systems the Client does not have authority to authorise.</p>
+            <p>The Client agrees to indemnify and hold harmless Auronix against any claims, damages, or expenses arising from the Client's failure to provide accurate scope information, unauthorised use of Auronix's deliverables, or testing conducted on systems the Client does not have authority to authorise.</p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">9. Governing Law & Dispute Resolution</h2>
@@ -59,8 +59,8 @@ const Terms: React.FC = () => (
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">10. Contact</h2>
-            <p>For questions about these terms: <a href="mailto:legal@hexashield.in" className="text-accent">legal@hexashield.in</a></p>
-            <p className="mt-1">HexaShield Security, Bareilly, Uttar Pradesh, India</p>
+            <p>For questions about these terms: <a href="mailto:legal@auronix.in" className="text-accent">legal@auronix.in</a></p>
+            <p className="mt-1">Auronix Technologies, Bareilly, Uttar Pradesh, India</p>
           </div>
         </div>
       </div>

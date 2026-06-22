@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Contact Form Routes
+// Auronix Technologies — Contact Form Routes
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');
@@ -36,7 +36,7 @@ router.post(
       } = req.body;
 
       // Generate reference number
-      const referenceNumber = `HS-CONTACT-${Date.now()}`;
+      const referenceNumber = `AX-CONTACT-${Date.now()}`;
 
       // Save to database
       const submission = await prisma.contactSubmission.create({
@@ -57,7 +57,7 @@ router.post(
       });
 
       // Send notification to admin
-      const adminEmail = process.env.EMAIL_FROM?.match(/<(.+)>/)?.[1] || 'admin@hexashield.in';
+      const adminEmail = process.env.EMAIL_FROM?.match(/<(.+)>/)?.[1] || 'admin@auronix.in';
       sendEmail({
         to: adminEmail,
         subject: `New Contact Submission — ${referenceNumber}`,
@@ -93,15 +93,15 @@ router.post(
       // Send confirmation to submitter
       sendEmail({
         to: email,
-        subject: `HexaShield — We Received Your Request (${referenceNumber})`,
+        subject: `Auronix — We Received Your Request (${referenceNumber})`,
         html: `
-          <h2>Thank you for contacting HexaShield Security</h2>
+          <h2>Thank you for contacting Auronix Technologies</h2>
           <p>Dear ${firstName},</p>
           <p>We have received your inquiry and will get back to you within 24 hours.</p>
           <p>Your reference number: <strong>${referenceNumber}</strong></p>
           <p>Please keep this reference number for future correspondence.</p>
           <hr>
-          <p>HexaShield Security — Securing Your Digital Assets</p>
+          <p>Auronix Technologies — Securing Your Digital Assets</p>
         `,
       }).catch(() => {
         // Email failures should not block form submission

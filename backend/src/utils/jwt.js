@@ -1,12 +1,12 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — JWT Utilities (RS256)
+// Auronix Technologies — JWT Utilities (RS256)
 // ═══════════════════════════════════════════════════════════════
 
 const jwt = require('jsonwebtoken');
 
 const PRIVATE_KEY = (process.env.JWT_PRIVATE_KEY || '').replace(/\\n/g, '\n');
 const PUBLIC_KEY = (process.env.JWT_PUBLIC_KEY || '').replace(/\\n/g, '\n');
-const ISSUER = process.env.JWT_ISSUER || 'hexashield.in';
+const ISSUER = process.env.JWT_ISSUER || 'auronix.in';
 const ACCESS_EXPIRY = process.env.JWT_EXPIRY || '15m';
 
 /**

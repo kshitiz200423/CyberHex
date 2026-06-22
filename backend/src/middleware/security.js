@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Security Middleware
+// Auronix Technologies — Security Middleware
 // ═══════════════════════════════════════════════════════════════
 
 const helmet = require('helmet');

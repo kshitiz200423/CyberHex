@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Crypto Utilities
+// Auronix Technologies — Crypto Utilities
 // ═══════════════════════════════════════════════════════════════
 
 const crypto = require('crypto');

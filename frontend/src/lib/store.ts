@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * HexaShield Security — Zustand Auth Store
+ * Auronix Technologies — Zustand Auth Store
  * Access token in-memory only; user metadata persisted to localStorage.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -59,7 +59,7 @@ export const useAuthStore = create<AuthState>()(
       isClient: () => get().user?.role === 'client',
     }),
     {
-      name: 'hexashield-auth',
+      name: 'auronix-auth',
       storage: createJSONStorage(() => localStorage),
       // Only persist user metadata — accessToken stays in memory only
       partialize: (state) => ({ user: state.user }),

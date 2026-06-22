@@ -60,7 +60,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
     data: {
-      service: 'HexaShield Security API',
+      service: 'Auronix Technologies API',
       version: '1.0.0',
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),

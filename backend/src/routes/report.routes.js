@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Report Routes
+// Auronix Technologies — Report Routes
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');
@@ -202,14 +202,14 @@ router.post(
           to: engagement.organisation.contactEmail,
           subject: `New Report Available — ${report.name}`,
           html: `
-            <h2>HexaShield Security</h2>
+            <h2>Auronix Technologies</h2>
             <p>A new report has been uploaded for your review:</p>
             <ul>
               <li><strong>Report:</strong> ${report.name}</li>
               <li><strong>Type:</strong> ${report.type}</li>
               <li><strong>Engagement:</strong> ${engagement.organisation.name}</li>
             </ul>
-            <p>Please log in to your HexaShield portal to download the report.</p>
+            <p>Please log in to your Auronix portal to download the report.</p>
           `,
         }).catch(() => {
           // Email notification failures should not block the upload

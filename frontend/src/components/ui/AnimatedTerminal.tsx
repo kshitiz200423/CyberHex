@@ -24,7 +24,7 @@ const lineColors: Record<string, string> = {
 
 const AnimatedTerminal: React.FC<AnimatedTerminalProps> = ({
   lines,
-  title = 'hexashield@soc:~',
+  title = 'auronix@soc:~',
   typingSpeed = 30,
   className = '',
 }) => {

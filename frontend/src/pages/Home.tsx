@@ -115,8 +115,8 @@ const services = [
 ] as const;
 
 const terminalLines = [
-  { text: 'hexashield-scan --target client.com --type full', type: 'command' as const },
-  { text: '[INFO] Initializing HexaShield VAPT Engine v3.2...', type: 'info' as const },
+  { text: 'auronix-scan --target client.com --type full', type: 'command' as const },
+  { text: '[INFO] Initializing Auronix VAPT Engine v3.2...', type: 'info' as const },
   { text: '[SCAN] Running port enumeration...', type: 'output' as const },
   { text: '[SCAN] Testing OWASP Top 10 vulnerabilities...', type: 'output' as const },
   { text: '[CRITICAL] SQL Injection found: /api/users?id=1', type: 'error' as const },
@@ -124,7 +124,7 @@ const terminalLines = [
   { text: '[MEDIUM] Missing security headers (CSP, HSTS)', type: 'warning' as const },
   { text: '[INFO] 47 endpoints tested, 3 vulnerabilities found', type: 'info' as const },
   { text: '[SUCCESS] Report generated: VAPT-2025-071.pdf', type: 'success' as const },
-  { text: 'hexashield-report --send client@company.com', type: 'command' as const },
+  { text: 'auronix-report --send client@company.com', type: 'command' as const },
   { text: '[SUCCESS] Encrypted report delivered via secure portal', type: 'success' as const },
 ] as const;
 
@@ -369,10 +369,10 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left column - checklist */}
             <div>
-              <p className="mono-label text-[11px] text-accent mb-4">⬡ WHY HEXASHIELD</p>
+              <p className="mono-label text-[11px] text-accent mb-4">⬡ WHY AURONIX</p>
               <h2 className="section-title mb-8">
                 Why Choose{' '}
-                <span className="text-gradient">HexaShield</span>
+                <span className="text-gradient">Auronix</span>
               </h2>
 
               <ul className="space-y-4">
@@ -398,7 +398,7 @@ const Home: React.FC = () => {
             <div>
               <AnimatedTerminal
                 lines={[...terminalLines]}
-                title="hexashield@soc:~"
+                title="auronix@soc:~"
                 typingSpeed={25}
                 className="shadow-glow-sm"
               />
@@ -463,7 +463,7 @@ const Home: React.FC = () => {
             <span className="text-gradient">Organisation?</span>
           </h2>
           <p className="text-text-2 text-lg max-w-xl mx-auto mb-8">
-            Get a free security consultation and discover how HexaShield can protect your digital assets. No obligations, just expert advice.
+            Get a free security consultation and discover how Auronix can protect your digital assets. No obligations, just expert advice.
           </p>
           <Link to="/contact" className="btn-primary text-base px-8 py-4">
             <ShieldIcon className="w-5 h-5" />

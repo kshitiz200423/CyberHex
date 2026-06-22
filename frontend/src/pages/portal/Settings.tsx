@@ -41,11 +41,11 @@ const Settings: React.FC = () => {
               <FieldWrap label="Last Name" htmlFor="lastName"><Input id="lastName" defaultValue="Admin" /></FieldWrap>
             </div>
             <FieldWrap label="Email" htmlFor="email" hint="Email cannot be changed">
-              <Input id="email" defaultValue="admin@hexashield.in" disabled className="opacity-50" />
+              <Input id="email" defaultValue="admin@auronix.in" disabled className="opacity-50" />
             </FieldWrap>
             <FieldWrap label="Phone" htmlFor="phone"><Input id="phone" defaultValue="+91 XXXXX XXXXX" /></FieldWrap>
             <FieldWrap label="Organisation" htmlFor="org" hint="Organisation cannot be changed">
-              <Input id="org" defaultValue="HexaShield Security" disabled className="opacity-50" />
+              <Input id="org" defaultValue="Auronix Technologies" disabled className="opacity-50" />
             </FieldWrap>
             <button className="btn-primary text-xs">Save Changes</button>
           </div>

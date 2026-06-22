@@ -4,23 +4,23 @@ const bcrypt = require('bcrypt');
 const prisma = new PrismaClient();
 
 async function seed() {
-  console.log('🌱 Seeding HexaShield database...\n');
+  console.log('🌱 Seeding Auronix database...\n');
 
   // ── Create Organisation ───────────────────────────────
-  const hexashield = await prisma.organisation.upsert({
-    where: { id: 'org-hexashield-001' },
+  const auronix = await prisma.organisation.upsert({
+    where: { id: 'org-auronix-001' },
     update: {},
     create: {
-      id: 'org-hexashield-001',
-      name: 'HexaShield Security',
-      domain: 'hexashield.in',
+      id: 'org-auronix-001',
+      name: 'Auronix Technologies',
+      domain: 'auronix.in',
       industry: 'Cybersecurity',
-      contactEmail: 'hello@hexashield.in',
+      contactEmail: 'hello@auronix.in',
       contactPhone: '+91 XXXXX XXXXX',
       address: 'Bareilly, Uttar Pradesh, India',
     },
   });
-  console.log('✓ Organisation created:', hexashield.name);
+  console.log('✓ Organisation created:', auronix.name);
 
   const clientOrg = await prisma.organisation.upsert({
     where: { id: 'org-client-demo-001' },
@@ -38,37 +38,37 @@ async function seed() {
   console.log('✓ Client organisation created:', clientOrg.name);
 
   // ── Create Users ──────────────────────────────────────
-  const adminPasswordHash = await bcrypt.hash('HexaShield@2025', 12);
+  const adminPasswordHash = await bcrypt.hash('Auronix@2025', 12);
   const analystPasswordHash = await bcrypt.hash('Analyst@2025', 12);
   const clientPasswordHash = await bcrypt.hash('Client@2025', 12);
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@hexashield.in' },
+    where: { email: 'admin@auronix.in' },
     update: {},
     create: {
-      email: 'admin@hexashield.in',
+      email: 'admin@auronix.in',
       passwordHash: adminPasswordHash,
       firstName: 'Kshitiz',
       lastName: 'Admin',
       role: 'ADMIN',
       phone: '+91 XXXXX XXXXX',
       totpEnabled: false,
-      orgId: hexashield.id,
+      orgId: auronix.id,
     },
   });
   console.log('✓ Admin user created:', admin.email);
 
   const analyst = await prisma.user.upsert({
-    where: { email: 'analyst@hexashield.in' },
+    where: { email: 'analyst@auronix.in' },
     update: {},
     create: {
-      email: 'analyst@hexashield.in',
+      email: 'analyst@auronix.in',
       passwordHash: analystPasswordHash,
       firstName: 'Arjun',
       lastName: 'Singh',
       role: 'ANALYST',
       phone: '+91 98765 00001',
-      orgId: hexashield.id,
+      orgId: auronix.id,
     },
   });
   console.log('✓ Analyst user created:', analyst.email);
@@ -92,7 +92,7 @@ async function seed() {
   const engagements = [
     {
       id: 'eng-001',
-      refId: 'HS-2025-001',
+      refId: 'AX-2025-001',
       name: 'Demo University Network VAPT',
       type: 'VAPT',
       status: 'IN_PROGRESS',
@@ -105,7 +105,7 @@ async function seed() {
     },
     {
       id: 'eng-002',
-      refId: 'HS-2025-002',
+      refId: 'AX-2025-002',
       name: 'Demo University ISO 27001 Audit',
       type: 'AUDIT',
       status: 'SCHEDULED',
@@ -118,7 +118,7 @@ async function seed() {
     },
     {
       id: 'eng-003',
-      refId: 'HS-2025-003',
+      refId: 'AX-2025-003',
       name: 'Demo University Security Training',
       type: 'TRAINING',
       status: 'COMPLETE',
@@ -132,7 +132,7 @@ async function seed() {
     },
     {
       id: 'eng-004',
-      refId: 'HS-2025-004',
+      refId: 'AX-2025-004',
       name: 'Demo University Web App Security',
       type: 'APPSEC',
       status: 'IN_REVIEW',
@@ -297,8 +297,8 @@ async function seed() {
 
   console.log('\n✅ Seed complete!\n');
   console.log('Login credentials:');
-  console.log('  Admin:   admin@hexashield.in / HexaShield@2025');
-  console.log('  Analyst: analyst@hexashield.in / Analyst@2025');
+  console.log('  Admin:   admin@auronix.in / Auronix@2025');
+  console.log('  Analyst: analyst@auronix.in / Analyst@2025');
   console.log('  Client:  client@demouniversity.edu.in / Client@2025');
 }
 

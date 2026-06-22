@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Engagement Validation Schemas
+// Auronix Technologies — Engagement Validation Schemas
 // ═══════════════════════════════════════════════════════════════
 
 const { z } = require('zod');

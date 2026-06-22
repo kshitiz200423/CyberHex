@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Auth Routes
+// Auronix Technologies — Auth Routes
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');

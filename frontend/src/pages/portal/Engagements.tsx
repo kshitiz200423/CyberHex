@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 const data = [
-  { refId: 'HS-2025-001', name: 'Network VAPT', type: 'VAPT', status: 'IN_PROGRESS', progress: 65, analyst: 'Arjun Singh', due: '15 Jul 2025', org: 'Demo University' },
-  { refId: 'HS-2025-002', name: 'ISO 27001 Audit', type: 'AUDIT', status: 'SCHEDULED', progress: 0, analyst: 'Priya Sharma', due: '01 Sep 2025', org: 'Demo University' },
-  { refId: 'HS-2025-003', name: 'Security Training', type: 'TRAINING', status: 'COMPLETE', progress: 100, analyst: 'Arjun Singh', due: '14 Apr 2025', org: 'Demo University' },
-  { refId: 'HS-2025-004', name: 'Web App Security', type: 'APPSEC', status: 'IN_REVIEW', progress: 90, analyst: 'Rohit Kumar', due: '30 Jun 2025', org: 'Demo University' },
-  { refId: 'HS-2025-005', name: 'Cloud Security', type: 'APPSEC', status: 'SCHEDULED', progress: 0, analyst: 'Rohit Kumar', due: '15 Aug 2025', org: 'ABC Bank' },
-  { refId: 'HS-2025-006', name: 'RBI Compliance Audit', type: 'AUDIT', status: 'IN_PROGRESS', progress: 40, analyst: 'Priya Sharma', due: '20 Jul 2025', org: 'ABC Bank' },
-  { refId: 'HS-2025-007', name: 'SOC Monitoring Setup', type: 'SOC', status: 'IN_PROGRESS', progress: 75, analyst: 'Rohit Kumar', due: '10 Jul 2025', org: 'MedCare Hospital' },
-  { refId: 'HS-2025-008', name: 'Staff Awareness Training', type: 'TRAINING', status: 'COMPLETE', progress: 100, analyst: 'Arjun Singh', due: '01 May 2025', org: 'EduTech Startup' },
+  { refId: 'AX-2025-001', name: 'Network VAPT', type: 'VAPT', status: 'IN_PROGRESS', progress: 65, analyst: 'Arjun Singh', due: '15 Jul 2025', org: 'Demo University' },
+  { refId: 'AX-2025-002', name: 'ISO 27001 Audit', type: 'AUDIT', status: 'SCHEDULED', progress: 0, analyst: 'Priya Sharma', due: '01 Sep 2025', org: 'Demo University' },
+  { refId: 'AX-2025-003', name: 'Security Training', type: 'TRAINING', status: 'COMPLETE', progress: 100, analyst: 'Arjun Singh', due: '14 Apr 2025', org: 'Demo University' },
+  { refId: 'AX-2025-004', name: 'Web App Security', type: 'APPSEC', status: 'IN_REVIEW', progress: 90, analyst: 'Rohit Kumar', due: '30 Jun 2025', org: 'Demo University' },
+  { refId: 'AX-2025-005', name: 'Cloud Security', type: 'APPSEC', status: 'SCHEDULED', progress: 0, analyst: 'Rohit Kumar', due: '15 Aug 2025', org: 'ABC Bank' },
+  { refId: 'AX-2025-006', name: 'RBI Compliance Audit', type: 'AUDIT', status: 'IN_PROGRESS', progress: 40, analyst: 'Priya Sharma', due: '20 Jul 2025', org: 'ABC Bank' },
+  { refId: 'AX-2025-007', name: 'SOC Monitoring Setup', type: 'SOC', status: 'IN_PROGRESS', progress: 75, analyst: 'Rohit Kumar', due: '10 Jul 2025', org: 'MedCare Hospital' },
+  { refId: 'AX-2025-008', name: 'Staff Awareness Training', type: 'TRAINING', status: 'COMPLETE', progress: 100, analyst: 'Arjun Singh', due: '01 May 2025', org: 'EduTech Startup' },
 ];
 
 const typeColors: Record<string, string> = { VAPT: 'bg-accent/20 text-accent', AUDIT: 'bg-brand-green/20 text-brand-green', TRAINING: 'bg-brand-amber/20 text-brand-amber', APPSEC: 'bg-brand-purple/20 text-brand-purple', SOC: 'bg-brand-teal/20 text-brand-teal' };

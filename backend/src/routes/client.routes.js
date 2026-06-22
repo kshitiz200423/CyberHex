@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Client Routes (Organisation Management)
+// Auronix Technologies — Client Routes (Organisation Management)
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');
@@ -181,9 +181,9 @@ router.post(
       const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
       sendEmail({
         to: userEmail,
-        subject: 'Welcome to HexaShield Security Portal',
+        subject: 'Welcome to Auronix Technologies Portal',
         html: `
-          <h2>Welcome to HexaShield Security</h2>
+          <h2>Welcome to Auronix Technologies</h2>
           <p>Dear ${userFirstName} ${userLastName},</p>
           <p>Your client account has been created for <strong>${orgName}</strong>.</p>
           <p>Here are your login credentials:</p>
@@ -194,7 +194,7 @@ router.post(
           <p>Please log in at <a href="${frontendUrl}">${frontendUrl}</a> and change your password immediately.</p>
           <p><em>This is an automated message. Please do not reply.</em></p>
           <hr>
-          <p>HexaShield Security — Securing Your Digital Assets</p>
+          <p>Auronix Technologies — Securing Your Digital Assets</p>
         `,
       }).catch(() => {
         // Email failures should not block account creation

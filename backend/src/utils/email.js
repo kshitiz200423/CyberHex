@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Email Utility
+// Auronix Technologies — Email Utility
 // ═══════════════════════════════════════════════════════════════
 // Priority: Resend API → SMTP (Nodemailer) → Console (dev only)
 // ═══════════════════════════════════════════════════════════════
@@ -7,7 +7,7 @@
 const nodemailer = require('nodemailer');
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const EMAIL_FROM = process.env.EMAIL_FROM || 'HexaShield Security <noreply@hexashield.in>';
+const EMAIL_FROM = process.env.EMAIL_FROM || 'Auronix Technologies <noreply@auronix.in>';
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 /**
@@ -30,9 +30,9 @@ async function sendEmail({ to, subject, html }) {
 
   // Development fallback
   if (IS_DEV) {
-    process.stderr.write(`[HexaShield Email] To: ${to}\n`);
-    process.stderr.write(`[HexaShield Email] Subject: ${subject}\n`);
-    process.stderr.write(`[HexaShield Email] Body length: ${html.length} chars\n`);
+    process.stderr.write(`[Auronix Email] To: ${to}\n`);
+    process.stderr.write(`[Auronix Email] Subject: ${subject}\n`);
+    process.stderr.write(`[Auronix Email] Body length: ${html.length} chars\n`);
     return { provider: 'console', messageId: `dev-${Date.now()}` };
   }
 

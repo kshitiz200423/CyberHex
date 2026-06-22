@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Authentication & Authorization Middleware
+// Auronix Technologies — Authentication & Authorization Middleware
 // ═══════════════════════════════════════════════════════════════
 
 const { PrismaClient } = require('@prisma/client');

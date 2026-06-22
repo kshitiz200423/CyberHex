@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * HexaShield Security — Axios Instance & API Helpers
+ * Auronix Technologies — Axios Instance & API Helpers
  * JWT refresh interceptor with request queueing; typed API methods.
  * ═══════════════════════════════════════════════════════════════════════════ */
 

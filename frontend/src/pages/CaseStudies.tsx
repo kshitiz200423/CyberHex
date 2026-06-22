@@ -16,7 +16,7 @@ const CASE_STUDIES = [
       { label: 'Campuses Secured', value: '12' },
       { label: 'Records Protected', value: '15K+' },
     ],
-    quote: 'HexaShield transformed our security posture. Their team understood the unique challenges of an educational institution and delivered practical, budget-friendly solutions.',
+    quote: 'Auronix transformed our security posture. Their team understood the unique challenges of an educational institution and delivered practical, budget-friendly solutions.',
     quoteName: 'Dr. Sharma', quoteTitle: 'IT Director',
   },
   {
@@ -34,7 +34,7 @@ const CASE_STUDIES = [
       { label: 'Turnaround', value: '8 wks' },
       { label: 'Re-audit Findings', value: '0' },
     ],
-    quote: 'Professional, thorough, and efficient. HexaShield helped us achieve full RBI compliance within our tight deadline.',
+    quote: 'Professional, thorough, and efficient. Auronix helped us achieve full RBI compliance within our tight deadline.',
     quoteName: 'Vikram Mehta', quoteTitle: 'CISO',
   },
   {
@@ -52,7 +52,7 @@ const CASE_STUDIES = [
       { label: 'Transactions Secured', value: '2M+' },
       { label: 'PCI DSS', value: 'Achieved' },
     ],
-    quote: 'After the breach, HexaShield was our lifeline. They not only fixed everything but helped us achieve PCI DSS compliance.',
+    quote: 'After the breach, Auronix was our lifeline. They not only fixed everything but helped us achieve PCI DSS compliance.',
     quoteName: 'Priya Kapoor', quoteTitle: 'CTO',
   },
   {
@@ -88,7 +88,7 @@ const CASE_STUDIES = [
       { label: 'Citizens Protected', value: '500K+' },
       { label: 'SSL Rating', value: 'A+' },
     ],
-    quote: 'HexaShield\'s expertise in Indian compliance frameworks made them the ideal partner for our government portal.',
+    quote: 'Auronix\'s expertise in Indian compliance frameworks made them the ideal partner for our government portal.',
     quoteName: 'Anonymous', quoteTitle: 'IT Secretary',
   },
   {

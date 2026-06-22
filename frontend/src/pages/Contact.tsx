@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
   }, []);
 
   const onSubmit = useCallback((data: ContactForm) => {
-    const ref = `HS-CONTACT-${Date.now().toString(36).toUpperCase()}`;
+    const ref = `AX-CONTACT-${Date.now().toString(36).toUpperCase()}`;
     setSubmitted(true);
   }, []);
 
@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
           </div>
           <h2 className="font-display text-3xl font-bold text-text mb-3">Request Submitted!</h2>
           <p className="text-text-2 mb-4">Thank you for reaching out. Our team will contact you within 4 hours.</p>
-          <p className="font-mono text-sm text-accent mb-8">Reference: HS-CONTACT-{Date.now().toString(36).toUpperCase().slice(0, 6)}</p>
+          <p className="font-mono text-sm text-accent mb-8">Reference: AX-CONTACT-{Date.now().toString(36).toUpperCase().slice(0, 6)}</p>
           <a href="/" className="btn-primary">Back to Home</a>
         </div>
       </div>
@@ -273,7 +273,7 @@ const Contact: React.FC = () => {
               <div className="card">
                 <h3 className="font-display text-lg font-bold text-text mb-4">Contact Info</h3>
                 <div className="space-y-3 text-sm text-text-2">
-                  <p>📧 hello@hexashield.in</p>
+                  <p>📧 hello@auronix.in</p>
                   <p>📱 +91 XXXXX XXXXX</p>
                   <p>📍 Bareilly, UP, India</p>
                 </div>
@@ -304,7 +304,7 @@ const Contact: React.FC = () => {
               <div className="card bg-accent/5 border-accent/20">
                 <h4 className="font-display text-sm font-bold text-accent mb-2">Free Consultation</h4>
                 <p className="text-xs text-text-2 mb-3">Book a 30-minute call with our security experts at no cost.</p>
-                <a href="mailto:hello@hexashield.in" className="btn-primary text-xs w-full text-center">Book a Call</a>
+                <a href="mailto:hello@auronix.in" className="btn-primary text-xs w-full text-center">Book a Call</a>
               </div>
             </div>
           </div>

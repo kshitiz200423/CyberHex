@@ -14,8 +14,8 @@ const Privacy: React.FC = () => (
         <div className="space-y-8 text-text-2 text-sm leading-relaxed">
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">1. Data Controller</h2>
-            <p>HexaShield Security ("we", "us", "our"), a cybersecurity services company registered in Bareilly, Uttar Pradesh, India, is the data controller for personal data collected through this website and client portal.</p>
-            <p className="mt-2">Contact: <a href="mailto:privacy@hexashield.in" className="text-accent">privacy@hexashield.in</a></p>
+            <p>Auronix Technologies ("we", "us", "our"), a cybersecurity services company registered in Bareilly, Uttar Pradesh, India, is the data controller for personal data collected through this website and client portal.</p>
+            <p className="mt-2">Contact: <a href="mailto:privacy@auronix.in" className="text-accent">privacy@auronix.in</a></p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">2. Data We Collect</h2>
@@ -79,8 +79,8 @@ const Privacy: React.FC = () => (
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">8. Contact</h2>
-            <p>For data-related queries: <a href="mailto:privacy@hexashield.in" className="text-accent">privacy@hexashield.in</a></p>
-            <p className="mt-1">HexaShield Security, Bareilly, Uttar Pradesh, India</p>
+            <p>For data-related queries: <a href="mailto:privacy@auronix.in" className="text-accent">privacy@auronix.in</a></p>
+            <p className="mt-1">Auronix Technologies, Bareilly, Uttar Pradesh, India</p>
           </div>
         </div>
       </div>

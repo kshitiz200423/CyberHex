@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Engagement Routes
+// Auronix Technologies — Engagement Routes
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');
@@ -16,11 +16,11 @@ const prisma = new PrismaClient();
 
 /**
  * Generate a unique engagement reference ID
- * Format: HS-{YEAR}-{3-digit sequential}
+ * Format: AX-{YEAR}-{3-digit sequential}
  */
 async function generateRefId() {
   const year = new Date().getFullYear();
-  const prefix = `HS-${year}-`;
+  const prefix = `AX-${year}-`;
 
   const lastEngagement = await prisma.engagement.findFirst({
     where: { refId: { startsWith: prefix } },

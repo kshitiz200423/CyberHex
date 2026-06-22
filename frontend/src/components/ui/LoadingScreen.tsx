@@ -25,7 +25,7 @@ const LoadingScreen: React.FC = () => {
       {/* Loading text */}
       <div className="flex flex-col items-center gap-2">
         <p className="font-mono text-sm text-accent uppercase tracking-[0.3em]">
-          HEXASHIELD
+          AURONIX
         </p>
         <div className="flex items-center gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" style={{ animationDelay: '0ms' }} />

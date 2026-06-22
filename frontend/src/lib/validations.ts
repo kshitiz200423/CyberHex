@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * HexaShield Security — Zod Validation Schemas
+ * Auronix Technologies — Zod Validation Schemas
  * Mirrors backend validation; used with react-hook-form via @hookform/resolvers.
  * ═══════════════════════════════════════════════════════════════════════════ */
 

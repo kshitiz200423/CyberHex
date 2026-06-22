@@ -59,7 +59,7 @@ const PublicLayout: React.FC = () => {
               <HexLogo size={36} />
               <div className="flex flex-col">
                 <span className="font-display text-lg font-bold text-text group-hover:text-accent transition-colors">
-                  HEXASHIELD
+                  AURONIX
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-text-3 -mt-0.5">
                   SECURITY
@@ -172,7 +172,7 @@ const PublicLayout: React.FC = () => {
               <Link to="/" className="flex items-center gap-3 mb-4">
                 <HexLogo size={32} />
                 <div>
-                  <span className="font-display text-base font-bold text-text">HEXASHIELD</span>
+                  <span className="font-display text-base font-bold text-text">AURONIX</span>
                   <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-text-3 block">
                     SECURITY
                   </span>
@@ -243,8 +243,8 @@ const PublicLayout: React.FC = () => {
                   <svg className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
-                  <a href="mailto:hello@hexashield.in" className="text-sm text-text-2 hover:text-accent transition-colors">
-                    hello@hexashield.in
+                  <a href="mailto:hello@auronix.in" className="text-sm text-text-2 hover:text-accent transition-colors">
+                    hello@auronix.in
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
@@ -269,7 +269,7 @@ const PublicLayout: React.FC = () => {
           {/* Bottom bar */}
           <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-text-3 font-mono">
-              © {new Date().getFullYear()} HexaShield Security. All rights reserved.
+              © {new Date().getFullYear()} Auronix Technologies. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <span className="mono-label text-[9px] text-text-3">CERT-IN EMPANELLED</span>

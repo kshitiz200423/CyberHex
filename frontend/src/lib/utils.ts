@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * HexaShield Security — Utility Functions & Config Maps
+ * Auronix Technologies — Utility Functions & Config Maps
  * Pure utility functions and static configuration data.
  * ═══════════════════════════════════════════════════════════════════════════ */
 

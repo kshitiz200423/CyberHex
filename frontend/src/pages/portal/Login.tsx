@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * HexaShield Security — Portal Login Page
+ * Auronix Technologies — Portal Login Page
  * Standalone login page (no portal layout wrapper).
  * Email/password + 2FA flow with mock auth.
  * ═══════════════════════════════════════════════════════════════════════════ */
@@ -27,7 +27,7 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 const MOCK_USER: User = {
   id: 'usr_01',
-  email: 'admin@hexashield.io',
+  email: 'admin@auronix.io',
   firstName: 'Marcus',
   lastName: 'Chen',
   role: 'admin',
@@ -38,10 +38,10 @@ const MOCK_USER: User = {
   orgId: 'org_01',
   organisation: {
     id: 'org_01',
-    name: 'HexaShield Security',
-    domain: 'hexashield.io',
+    name: 'Auronix Technologies',
+    domain: 'auronix.io',
     industry: 'Cybersecurity',
-    contactEmail: 'contact@hexashield.io',
+    contactEmail: 'contact@auronix.io',
   },
 };
 
@@ -86,7 +86,7 @@ const Login: React.FC = () => {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      if (data.email === 'admin@hexashield.io' && data.password === 'password123') {
+      if (data.email === 'admin@auronix.io' && data.password === 'password123') {
         // Mock: account has 2FA enabled
         setStep('2fa');
         setIsSubmitting(false);
@@ -194,7 +194,7 @@ const Login: React.FC = () => {
             <HexLogo size={52} animated />
             <div>
               <h1 className="font-display text-2xl font-extrabold text-text tracking-tight">
-                HEXASHIELD
+                AURONIX
               </h1>
               <p className="font-mono text-xs text-accent uppercase tracking-[0.3em]">
                 SECURITY
@@ -234,7 +234,7 @@ const Login: React.FC = () => {
         <div className="relative z-10">
           <div className="divider mb-6" />
           <p className="text-xs text-text-3 font-mono">
-            © 2026 HexaShield Security. All rights reserved.
+            © 2026 Auronix Technologies. All rights reserved.
           </p>
         </div>
       </div>
@@ -246,7 +246,7 @@ const Login: React.FC = () => {
           <div className="lg:hidden flex items-center gap-3 mb-10">
             <HexLogo size={40} />
             <span className="font-display text-xl font-extrabold text-text">
-              HEXASHIELD
+              AURONIX
             </span>
           </div>
 

@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Finding Routes
+// Auronix Technologies — Finding Routes
 // ═══════════════════════════════════════════════════════════════
 
 const express = require('express');
@@ -18,7 +18,7 @@ const prisma = new PrismaClient();
  * Format: F-{engagement_num}-{sequential}
  */
 async function generateFindingRefId(engagementRefId) {
-  const engNum = engagementRefId.split('-').pop(); // e.g., '071' from 'HS-2025-071'
+  const engNum = engagementRefId.split('-').pop(); // e.g., '071' from 'AX-2025-071'
 
   const lastFinding = await prisma.finding.findFirst({
     where: { refId: { startsWith: `F-${engNum}-` } },

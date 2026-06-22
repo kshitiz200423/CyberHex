@@ -1,4 +1,4 @@
-# HexaShield Security
+# Auronix Technologies
 
 > Enterprise-grade cybersecurity services & client portal for Indian SMEs and educational institutions.
 
@@ -10,7 +10,7 @@
 ## 🏗️ Architecture
 
 ```
-hexashield/
+auronix/
 ├── frontend/          # React 18 + TypeScript + Vite + Tailwind CSS
 ├── backend/           # Node.js + Express + Prisma + PostgreSQL
 └── package.json       # Monorepo root (npm workspaces)
@@ -28,7 +28,7 @@ hexashield/
 ```bash
 # 1. Clone and install
 git clone <your-repo-url>
-cd hexashield
+cd auronix
 npm install
 
 # 2. Configure environment
@@ -57,8 +57,8 @@ The frontend runs at `http://localhost:5173` and the backend at `http://localhos
 
 | Role    | Email                           | Password        |
 |---------|--------------------------------|-----------------|
-| Admin   | admin@hexashield.in            | HexaShield@2025 |
-| Analyst | analyst@hexashield.in          | Analyst@2025    |
+| Admin   | admin@auronix.in            | Auronix@2025 |
+| Analyst | analyst@auronix.in          | Analyst@2025    |
 | Client  | client@demouniversity.edu.in   | Client@2025     |
 
 ## 🔒 Security Architecture
@@ -108,4 +108,4 @@ Reports are stored in a **private GitHub repository** (no cloud costs):
 
 ---
 
-Built with 🛡️ by HexaShield Security, Bareilly, India
+Built with 🛡️ by Auronix Technologies, Bareilly, India

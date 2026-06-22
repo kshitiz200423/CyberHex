@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
- * HexaShield Security — Core Type Definitions
+ * Auronix Technologies — Core Type Definitions
  * All interfaces, enums, and API response types for the frontend application.
  * ═══════════════════════════════════════════════════════════════════════════ */
 

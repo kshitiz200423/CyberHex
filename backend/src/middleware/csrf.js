@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — CSRF Protection (Double Submit Cookie)
+// Auronix Technologies — CSRF Protection (Double Submit Cookie)
 // ═══════════════════════════════════════════════════════════════
 
 const { generateCsrfToken, timingSafeCompare } = require('../utils/crypto');

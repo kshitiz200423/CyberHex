@@ -1,8 +1,8 @@
 {
-  "name": "hexashield",
+  "name": "auronix",
   "version": "1.0.0",
   "private": true,
-  "description": "HexaShield Security — Cybersecurity Services & Client Portal",
+  "description": "Auronix Technologies — Cybersecurity Services & Client Portal",
   "workspaces": [
     "frontend",
     "backend"

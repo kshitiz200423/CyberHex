@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Validation Middleware (Zod)
+// Auronix Technologies — Validation Middleware (Zod)
 // ═══════════════════════════════════════════════════════════════
 
 const { ZodError } = require('zod');

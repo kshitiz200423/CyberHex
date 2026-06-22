@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════
-// HexaShield Security — Error Handling & Logging Middleware
+// Auronix Technologies — Error Handling & Logging Middleware
 // ═══════════════════════════════════════════════════════════════
 
 const { PrismaClient } = require('@prisma/client');
@@ -92,7 +92,7 @@ function globalErrorHandler(err, _req, res, _next) {
 
   // Log programmer errors (non-operational) to stderr
   if (!err.isOperational) {
-    process.stderr.write(`[HexaShield ERROR] ${err.stack || err.message}\n`);
+    process.stderr.write(`[Auronix ERROR] ${err.stack || err.message}\n`);
   }
 
   res.status(err.statusCode).json(response);
@@ -115,7 +115,7 @@ function requestLogger(req, res, next) {
   res.on('finish', () => {
     const duration = Date.now() - start;
     const logLine = `${req.method} ${req.originalUrl} ${res.statusCode} ${duration}ms`;
-    process.stderr.write(`[HexaShield] ${logLine}\n`);
+    process.stderr.write(`[Auronix] ${logLine}\n`);
   });
 
   next();
