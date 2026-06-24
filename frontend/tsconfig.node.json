@@ -5,20 +5,10 @@
     "types": ["node"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "composite": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
     "isolatedModules": true,
-    "moduleDetection": "force",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noEmit": true,
+    "strict": true
   },
   "include": ["vite.config.ts"]
 }
