@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build -w frontend",
+  "buildCommand": "npm run build -w auronix-frontend",
   "outputDirectory": "frontend/dist",
   "installCommand": "npm install",
   "framework": "vite",
