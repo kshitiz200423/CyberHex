@@ -22,5 +22,8 @@
   },
   "engines": {
     "node": "20.x"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@^4.61.1"
   }
 }

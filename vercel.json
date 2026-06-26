@@ -1,7 +1,6 @@
 {
   "buildCommand": "npm run build -w auronix-frontend",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm install",
   "framework": "vite",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
