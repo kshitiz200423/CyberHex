@@ -16,6 +16,8 @@ const reportRoutes = require('./routes/report.routes');
 const findingRoutes = require('./routes/finding.routes');
 const clientRoutes = require('./routes/client.routes');
 const contactRoutes = require('./routes/contact.routes');
+const dashboardRoutes = require('./routes/dashboard.routes');
+const settingsRoutes = require('./routes/settings.routes');
 
 const app = express();
 
@@ -75,6 +77,8 @@ app.use('/api/reports', reportRoutes);
 app.use('/api/findings', findingRoutes);
 app.use('/api/clients', clientRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/settings', settingsRoutes);
 
 // ═══════════════════════════════════════════════════════════
 // ERROR HANDLING
