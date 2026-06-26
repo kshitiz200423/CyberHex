@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm install @rollup/rollup-linux-x64-gnu@4.61.1 --no-save && npm run build -w auronix-frontend && rm -rf dist && cp -r frontend/dist dist",
+  "buildCommand": "npm run build -w auronix-frontend && rm -rf dist && cp -r frontend/dist dist",
   "framework": "vite",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
