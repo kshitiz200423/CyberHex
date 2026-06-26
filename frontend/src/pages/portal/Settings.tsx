@@ -1,9 +1,37 @@
 import React, { useState } from 'react';
 import { FieldWrap, Input } from '@/components/ui/FormField';
+import { settingsApi } from '@/lib/api';
+
 
 const Settings: React.FC = () => {
   const [tab, setTab] = useState<'profile' | 'security' | 'notifications'>('profile');
   const [twoFA, setTwoFA] = useState(false);
+  const [passwords, setPasswords] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
+  const [passStatus, setPassStatus] = useState<{type: 'error' | 'success', msg: string} | null>(null);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  const handlePasswordUpdate = async () => {
+    setPassStatus(null);
+    if (passwords.newPassword !== passwords.confirmPassword) {
+      setPassStatus({ type: 'error', msg: 'New passwords do not match' });
+      return;
+    }
+    try {
+      setIsUpdating(true);
+      await settingsApi.changePassword({ 
+        currentPassword: passwords.currentPassword, 
+        newPassword: passwords.newPassword, 
+        confirmPassword: passwords.confirmPassword 
+      });
+      setPassStatus({ type: 'success', msg: 'Password updated successfully!' });
+      setPasswords({ currentPassword: '', newPassword: '', confirmPassword: '' });
+    } catch (err: any) {
+      setPassStatus({ type: 'error', msg: err.response?.data?.message || 'Failed to update password' });
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
   const [notifications, setNotifications] = useState({ newReport: true, findingUpdate: true, engagementStatus: true, weeklyDigest: false });
 
   const tabs = [
@@ -58,12 +86,23 @@ const Settings: React.FC = () => {
           <div className="card">
             <h3 className="font-display text-lg font-bold text-text mb-6">Change Password</h3>
             <div className="space-y-4">
-              <FieldWrap label="Current Password" htmlFor="currentPass"><Input id="currentPass" type="password" /></FieldWrap>
-              <FieldWrap label="New Password" htmlFor="newPass" hint="Minimum 8 characters with uppercase, lowercase, number, and special character">
-                <Input id="newPass" type="password" />
+              {passStatus && (
+                <div className={`p-3 rounded-lg text-sm ${passStatus.type === 'error' ? 'bg-brand-red/10 text-brand-red' : 'bg-brand-green/10 text-brand-green'}`}>
+                  {passStatus.msg}
+                </div>
+              )}
+              <FieldWrap label="Current Password" htmlFor="currentPass">
+                <Input id="currentPass" type="password" value={passwords.currentPassword} onChange={(e) => setPasswords({...passwords, currentPassword: e.target.value})} />
               </FieldWrap>
-              <FieldWrap label="Confirm Password" htmlFor="confirmPass"><Input id="confirmPass" type="password" /></FieldWrap>
-              <button className="btn-primary text-xs">Update Password</button>
+              <FieldWrap label="New Password" htmlFor="newPass" hint="Minimum 8 characters with uppercase, lowercase, number, and special character">
+                <Input id="newPass" type="password" value={passwords.newPassword} onChange={(e) => setPasswords({...passwords, newPassword: e.target.value})} />
+              </FieldWrap>
+              <FieldWrap label="Confirm Password" htmlFor="confirmPass">
+                <Input id="confirmPass" type="password" value={passwords.confirmPassword} onChange={(e) => setPasswords({...passwords, confirmPassword: e.target.value})} />
+              </FieldWrap>
+              <button onClick={handlePasswordUpdate} disabled={isUpdating} className="btn-primary text-xs">
+                {isUpdating ? 'Updating...' : 'Update Password'}
+              </button>
             </div>
           </div>
 
