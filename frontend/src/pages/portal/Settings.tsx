@@ -66,12 +66,12 @@ const Settings: React.FC = () => {
           <div className="space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <FieldWrap label="First Name" htmlFor="firstName"><Input id="firstName" defaultValue="Kshitiz" /></FieldWrap>
-              <FieldWrap label="Last Name" htmlFor="lastName"><Input id="lastName" defaultValue="Admin" /></FieldWrap>
+              <FieldWrap label="Last Name" htmlFor="lastName"><Input id="lastName" defaultValue="Kumar" /></FieldWrap>
             </div>
             <FieldWrap label="Email" htmlFor="email" hint="Email cannot be changed">
               <Input id="email" defaultValue="admin@auronix.in" disabled className="opacity-50" />
             </FieldWrap>
-            <FieldWrap label="Phone" htmlFor="phone"><Input id="phone" defaultValue="+91 XXXXX XXXXX" /></FieldWrap>
+            <FieldWrap label="Phone" htmlFor="phone"><Input id="phone" defaultValue="+91 9953933965" /></FieldWrap>
             <FieldWrap label="Organisation" htmlFor="org" hint="Organisation cannot be changed">
               <Input id="org" defaultValue="Auronix Technologies" disabled className="opacity-50" />
             </FieldWrap>
@@ -137,7 +137,7 @@ const Settings: React.FC = () => {
               <div className="flex items-center justify-between p-3 bg-bg-2 rounded-lg border border-border">
                 <div>
                   <p className="text-sm text-text">Chrome on macOS <span className="pill bg-brand-green/10 text-brand-green ml-2">Current</span></p>
-                  <p className="text-xs text-text-3">Bareilly, UP · IP: 103.xxx.xxx.xxx · Active now</p>
+                  <p className="text-xs text-text-3">Gurugram · IP: 103.xxx.xxx.xxx · Active now</p>
                 </div>
               </div>
               <div className="flex items-center justify-between p-3 bg-bg-2 rounded-lg border border-border">

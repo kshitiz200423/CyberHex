@@ -31,7 +31,7 @@ const BLOG_CONTENT: Record<string, { title: string; date: string; author: string
   },
   'phishing-employee-training': {
     title: 'Phishing Attacks: Why Your Employees Are Your Weakest Link',
-    date: '2025-05-28', author: 'Kshitiz Agrawal', category: 'Best Practices', readTime: '4 min',
+    date: '2025-05-28', author: 'Kshitiz Kumar', category: 'Best Practices', readTime: '4 min',
     content: [
       '91% of all cyberattacks begin with a phishing email. Despite advances in email security, human error remains the primary vector for security breaches. Traditional annual security awareness training simply doesn\'t work — research shows that training effects diminish within weeks without reinforcement.',
       'Modern phishing simulations provide continuous, measurable training that keeps employees vigilant. At Auronix, our phishing campaigns mimic real-world attacks that are relevant to Indian organisations — UPI payment notifications, GST compliance emails, Aadhaar verification requests, and more.',

@@ -273,9 +273,9 @@ const Contact: React.FC = () => {
               <div className="card">
                 <h3 className="font-display text-lg font-bold text-text mb-4">Contact Info</h3>
                 <div className="space-y-3 text-sm text-text-2">
-                  <p>📧 hello@auronix.in</p>
-                  <p>📱 +91 XXXXX XXXXX</p>
-                  <p>📍 Bareilly, UP, India</p>
+                  <p>📧 contact@auronixtechnologies.com</p>
+                  <p>📱 +91 9953933965</p>
+                  <p>📍 Gurugram, Haryana, India</p>
                 </div>
               </div>
               <div className="card">
@@ -304,7 +304,7 @@ const Contact: React.FC = () => {
               <div className="card bg-accent/5 border-accent/20">
                 <h4 className="font-display text-sm font-bold text-accent mb-2">Free Consultation</h4>
                 <p className="text-xs text-text-2 mb-3">Book a 30-minute call with our security experts at no cost.</p>
-                <a href="mailto:hello@auronix.in" className="btn-primary text-xs w-full text-center">Book a Call</a>
+                <a href="mailto:contact@auronixtechnologies.com" className="btn-primary text-xs w-full text-center">Book a Call</a>
               </div>
             </div>
           </div>

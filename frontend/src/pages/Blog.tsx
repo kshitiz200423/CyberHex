@@ -21,7 +21,7 @@ const POSTS = [
   },
   {
     slug: 'phishing-employee-training', title: 'Phishing Attacks: Why Your Employees Are Your Weakest Link',
-    category: 'Best Practices', readTime: '4 min', date: '2025-05-28', author: 'Kshitiz Agrawal',
+    category: 'Best Practices', readTime: '4 min', date: '2025-05-28', author: 'Kshitiz Kumar',
     excerpt: '91% of cyberattacks begin with a phishing email. Learn why traditional security awareness training fails and what modern, simulation-based approaches can achieve for your organisation\'s human firewall.',
   },
   {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FieldWrap, Input, Select } from '@/components/ui/FormField';
 
 const members = [
-  { id: 1, name: 'Kshitiz Agrawal', email: 'admin@auronix.in', role: 'ADMIN', status: 'active', lastLogin: '7 Jun 2025, 12:30 PM' },
+  { id: 1, name: 'Kshitiz Kumar', email: 'admin@auronix.in', role: 'ADMIN', status: 'active', lastLogin: '7 Jun 2025, 12:30 PM' },
   { id: 2, name: 'Arjun Singh', email: 'analyst@auronix.in', role: 'ANALYST', status: 'active', lastLogin: '7 Jun 2025, 10:15 AM' },
   { id: 3, name: 'Priya Sharma', email: 'priya@auronix.in', role: 'ANALYST', status: 'active', lastLogin: '6 Jun 2025, 4:45 PM' },
   { id: 4, name: 'Rajesh Kumar', email: 'client@demouniversity.edu.in', role: 'CLIENT', status: 'active', lastLogin: '5 Jun 2025, 9:00 AM' },

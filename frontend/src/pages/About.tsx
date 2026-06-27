@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TEAM = [
-  { name: 'Kshitiz Agrawal', title: 'Founder & CEO', desc: 'Cybersecurity veteran with 10+ years of experience in offensive security and compliance. OSCP, CEH certified.', initials: 'KA' },
+  { name: 'Kshitiz Kumar', title: 'Founder & CEO', desc: 'Cybersecurity veteran with 10+ years of experience in offensive security and compliance. OSCP, CEH certified.', initials: 'KK' },
   { name: 'Arjun Singh', title: 'Head of Offensive Security', desc: 'OSCP, CRTP certified. Expert in network and web application penetration testing with 8+ years of experience.', initials: 'AS' },
   { name: 'Priya Sharma', title: 'Lead Security Analyst', desc: 'CISSP certified. Specialises in ISO 27001, RBI compliance, and security programme development.', initials: 'PS' },
   { name: 'Rohit Kumar', title: 'SOC Manager', desc: '24/7 operations lead. Expert in SIEM technologies, threat hunting, and incident response.', initials: 'RK' },
@@ -38,7 +38,7 @@ const About: React.FC = () => (
         <p className="text-lg text-text-2 leading-relaxed">
           Auronix Technologies was founded by cybersecurity professionals who saw a gap in the Indian market: SMEs and educational institutions
           needed access to the same calibre of security services that large enterprises receive — but at a price point that makes sense.
-          Based in Bareilly, Uttar Pradesh, we serve organisations across India with professional, thorough, and affordable cybersecurity solutions.
+          Based in Gurugram, Haryana, we serve organisations across India with professional, thorough, and affordable cybersecurity solutions.
         </p>
       </div>
     </section>

@@ -95,7 +95,7 @@ const PortalLayout: React.FC = () => {
   const navigate = useNavigate();
 
   // Mock user — will be replaced with Zustand store
-  const user = { firstName: 'Kshitiz', lastName: 'Admin', role: 'ADMIN', email: 'admin@auronix.in' };
+  const user = { firstName: 'Kshitiz', lastName: 'Kumar', role: 'ADMIN', email: 'admin@auronix.in' };
 
   const handleLogout = useCallback(() => {
     navigate('/portal/login');

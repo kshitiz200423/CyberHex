@@ -35,7 +35,7 @@ const Clients: React.FC = () => {
               ]} />
             </FieldWrap>
             <FieldWrap label="Contact Email" htmlFor="contactEmail" required><Input id="contactEmail" type="email" placeholder="contact@company.com" /></FieldWrap>
-            <FieldWrap label="Contact Phone" htmlFor="contactPhone"><Input id="contactPhone" type="tel" placeholder="+91 XXXXX XXXXX" /></FieldWrap>
+            <FieldWrap label="Contact Phone" htmlFor="contactPhone"><Input id="contactPhone" type="tel" placeholder="+91 9953933965" /></FieldWrap>
             <FieldWrap label="Initial User Email" htmlFor="userEmail" required hint="An account will be created with a temporary password">
               <Input id="userEmail" type="email" placeholder="user@company.com" />
             </FieldWrap>

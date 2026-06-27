@@ -25,7 +25,7 @@ const Terms: React.FC = () => (
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">3. Portal Acceptable Use</h2>
-            <p>The Auronix client portal is provided for the sole purpose of accessing engagement-related information, reports, and findings. Users must not attempt to access data belonging to other organisations, reverse-engineer the portal, or share portal credentials. Any security concerns should be reported to <a href="mailto:security@auronix.in" className="text-accent">security@auronix.in</a>.</p>
+            <p>The Auronix client portal is provided for the sole purpose of accessing engagement-related information, reports, and findings. Users must not attempt to access data belonging to other organisations, reverse-engineer the portal, or share portal credentials. Any security concerns should be reported to <a href="mailto:contact@auronixtechnologies.com" className="text-accent">contact@auronixtechnologies.com</a>.</p>
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">4. Confidentiality & NDA</h2>
@@ -59,8 +59,8 @@ const Terms: React.FC = () => (
           </div>
           <div>
             <h2 className="font-display text-xl font-bold text-text mb-3">10. Contact</h2>
-            <p>For questions about these terms: <a href="mailto:legal@auronix.in" className="text-accent">legal@auronix.in</a></p>
-            <p className="mt-1">Auronix Technologies, Bareilly, Uttar Pradesh, India</p>
+            <p>For questions about these terms: <a href="mailto:contact@auronixtechnologies.com" className="text-accent">contact@auronixtechnologies.com</a></p>
+            <p className="mt-1">Auronix Technologies, Gurugram, Haryana, India</p>
           </div>
         </div>
       </div>
