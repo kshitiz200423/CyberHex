@@ -36,8 +36,13 @@ import type {
 
 // ─── Axios Instance ────────────────────────────────────────────────────────
 
+let configuredBaseUrl = import.meta.env.VITE_API_URL || '/api';
+if (configuredBaseUrl && !configuredBaseUrl.startsWith('http') && !configuredBaseUrl.startsWith('/')) {
+  configuredBaseUrl = `https://${configuredBaseUrl}`;
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: configuredBaseUrl,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
