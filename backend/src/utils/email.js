@@ -1,47 +1,45 @@
 // ═══════════════════════════════════════════════════════════════
-// Auronix Technologies — Email Utility (Nodemailer SMTP only)
+// Auronix Technologies — Email Utility (Resend API)
 // ═══════════════════════════════════════════════════════════════
 
-const nodemailer = require('nodemailer');
-
-const ADMIN_EMAIL = 'contact@auronixtechnologies.com';
-const EMAIL_FROM = process.env.EMAIL_FROM || `Auronix Technologies <${ADMIN_EMAIL}>`;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const EMAIL_FROM = process.env.EMAIL_FROM || 'Auronix Technologies <onboarding@resend.dev>';
 
 /**
- * Send an email via SMTP (Gmail / Google Workspace compatible)
+ * Send an email using Resend API (HTTP port 443 — bypasses Railway SMTP blocks)
+ * @param {Object} options
+ * @param {string} options.to - Recipient email
+ * @param {string} options.subject - Email subject
+ * @param {string} options.html - HTML body
  */
 async function sendEmail({ to, subject, html }) {
-  // SMTP must be configured
-  if (!process.env.SMTP_HOST && !process.env.SMTP_USER) {
-    console.warn('[Email] SMTP not configured. Email NOT sent to:', to);
-    console.warn('[Email] Subject:', subject);
+  if (!RESEND_API_KEY) {
+    console.warn('[Email] RESEND_API_KEY not configured. Email NOT sent to:', to);
     return { provider: 'none', messageId: `not-sent-${Date.now()}` };
   }
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.SMTP_PORT, 10) || 587,
-    secure: parseInt(process.env.SMTP_PORT, 10) === 465,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
     },
-    connectionTimeout: 5000,
-    greetingTimeout: 5000,
-    socketTimeout: 5000,
-    logger: true,
-    debug: true,
+    body: JSON.stringify({
+      from: EMAIL_FROM,
+      to: Array.isArray(to) ? to : [to],
+      subject,
+      html,
+    }),
   });
 
-  const info = await transporter.sendMail({
-    from: EMAIL_FROM,
-    to,
-    subject,
-    html,
-  });
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new Error(`Resend API error: ${response.status} - ${error.message || 'Unknown'}`);
+  }
 
-  console.log('[Email] Sent to:', to, 'MessageId:', info.messageId);
-  return { provider: 'smtp', messageId: info.messageId };
+  const data = await response.json();
+  console.log('[Email] Sent via Resend to:', to, 'MessageId:', data.id);
+  return { provider: 'resend', messageId: data.id };
 }
 
 module.exports = { sendEmail };
