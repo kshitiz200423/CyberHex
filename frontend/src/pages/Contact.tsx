@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
   const [selectedTimeline, setSelectedTimeline] = useState('Flexible');
   const [budgetValue, setBudgetValue] = useState(50);
 
-  const { register, handleSubmit, formState: { errors }, getValues, trigger, watch } = useForm<ContactForm>({
+  const { register, handleSubmit, formState: { errors }, getValues, trigger, watch, setValue } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
     defaultValues: { services: [], timeline: 'Flexible', budget: '₹1-5 Lakh' },
   });
@@ -61,17 +61,26 @@ const Contact: React.FC = () => {
   const nextStep = useCallback(async () => {
     let valid = true;
     if (step === 0) valid = await trigger(['firstName', 'lastName', 'email', 'phone', 'orgName', 'orgSize']);
+    if (step === 1) {
+      // Validate services manually because they are custom UI
+      if (selectedServices.length === 0) {
+        alert('Please select at least one service');
+        valid = false;
+      }
+    }
     if (step === 2) valid = await trigger(['scope']);
     if (valid) setStep((s) => Math.min(s + 1, 3));
-  }, [step, trigger]);
+  }, [step, trigger, selectedServices]);
 
   const prevStep = useCallback(() => setStep((s) => Math.max(s - 1, 0)), []);
 
   const toggleService = useCallback((id: string) => {
-    setSelectedServices((prev) =>
-      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
-    );
-  }, []);
+    setSelectedServices((prev) => {
+      const next = prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id];
+      setValue('services', next);
+      return next;
+    });
+  }, [setValue]);
 
   const [reference, setReference] = useState('');
   const { mutate, isPending } = useMutation({
@@ -89,12 +98,12 @@ const Contact: React.FC = () => {
     mutate({
       ...data,
       orgSize: data.orgSize as any,
-      budget: data.budget as any,
-      timeline: data.timeline as any,
+      budget: budgetDisplay as any,
+      timeline: selectedTimeline as any,
       services: data.services as any,
       notes: data.notes || '',
     });
-  }, [mutate]);
+  }, [mutate, budgetDisplay, selectedTimeline]);
 
   if (submitted) {
     return (
