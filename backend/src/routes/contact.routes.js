@@ -86,8 +86,8 @@ router.post(
           <p>${scope}</p>
           ${notes ? `<h3>Additional Notes</h3><p>${notes}</p>` : ''}
         `,
-      }).catch(() => {
-        // Email failures should not block form submission
+      }).catch((err) => {
+        console.error('[Admin Email Failed]:', err.message);
       });
 
       // Send confirmation to submitter
@@ -103,8 +103,8 @@ router.post(
           <hr>
           <p>Auronix Technologies — Securing Your Digital Assets</p>
         `,
-      }).catch(() => {
-        // Email failures should not block form submission
+      }).catch((err) => {
+        console.error('[Client Email Failed]:', err.message);
       });
 
       return res.status(201).json({
