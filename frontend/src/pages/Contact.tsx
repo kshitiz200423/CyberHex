@@ -32,12 +32,12 @@ const STEPS = [
 ];
 
 const SERVICES_LIST = [
-  { id: 'vapt', label: 'VAPT', desc: 'Vulnerability Assessment & Penetration Testing' },
-  { id: 'audit', label: 'Security Audits', desc: 'ISO 27001, RBI, CERT-In Compliance' },
-  { id: 'consultancy', label: 'Consultancy', desc: 'CISO-as-a-Service, Security Advisory' },
-  { id: 'soc', label: 'Managed SOC', desc: '24/7 Security Monitoring' },
-  { id: 'training', label: 'Security Training', desc: 'Phishing Simulations, Workshops' },
-  { id: 'appsec', label: 'Cloud & App Security', desc: 'OWASP, API, DevSecOps' },
+  { id: 'VAPT', label: 'VAPT', desc: 'Vulnerability Assessment & Penetration Testing' },
+  { id: 'AUDIT', label: 'Security Audits', desc: 'ISO 27001, RBI, CERT-In Compliance' },
+  { id: 'CONSULTANCY', label: 'Consultancy', desc: 'CISO-as-a-Service, Security Advisory' },
+  { id: 'SOC', label: 'Managed SOC', desc: '24/7 Security Monitoring' },
+  { id: 'TRAINING', label: 'Security Training', desc: 'Phishing Simulations, Workshops' },
+  { id: 'APPSEC', label: 'Cloud & App Security', desc: 'OWASP, API, DevSecOps' },
 ];
 
 const TIMELINES = ['Immediate', '1-2 weeks', '1 month', 'Flexible'];
