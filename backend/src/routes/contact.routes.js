@@ -57,7 +57,7 @@ router.post(
       });
 
       // Send notification to admin
-      const adminEmail = process.env.EMAIL_FROM?.match(/<(.+)>/)?.[1] || 'admin@auronix.in';
+      const adminEmail = process.env.ADMIN_EMAIL || 'contact@auronixtechnologies.com';
       sendEmail({
         to: adminEmail,
         subject: `New Contact Submission — ${referenceNumber}`,
