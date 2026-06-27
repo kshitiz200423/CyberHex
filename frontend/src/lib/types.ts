@@ -255,12 +255,17 @@ export interface TokenResponse {
 
 export interface DashboardStats {
   activeEngagements: number;
-  totalFindings: number;
+  totalEngagements: number;
   criticalFindings: number;
-  reportsAvailable: number;
-  findingsBySeverity: Record<FindingSeverity, number>;
-  findingsByStatus: Record<FindingStatus, number>;
-  recentActivity: ActivityItem[];
+  openFindings: number;
+  fixRate: number;
+  reportsCount: number;
+  recentActivity: {
+    id: string;
+    action: string;
+    user: string;
+    createdAt: string;
+  }[];
 }
 
 export interface ActivityItem {
