@@ -21,6 +21,9 @@ const settingsRoutes = require('./routes/settings.routes');
 
 const app = express();
 
+// Enable trust proxy for express-rate-limit behind Railway load balancers
+app.set('trust proxy', 1);
+
 // ═══════════════════════════════════════════════════════════
 // MIDDLEWARE STACK — applied in this exact security order
 // ═══════════════════════════════════════════════════════════
