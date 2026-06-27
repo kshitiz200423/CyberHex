@@ -10,6 +10,7 @@
 
   body {
     @apply bg-bg text-text font-sans antialiased;
+    overflow-x: hidden;
   }
 
   h1,
@@ -47,7 +48,7 @@
   }
 
   /* Firefox scrollbar */
-  * {
+  html {
     scrollbar-width: thin;
     scrollbar-color: #1a2236 #090d1a;
   }

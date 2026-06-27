@@ -43,7 +43,7 @@ const PublicLayout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg overflow-x-hidden">
+    <div className="min-h-screen bg-bg">
       {/* ─── Navigation ─────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${

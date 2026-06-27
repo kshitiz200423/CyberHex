@@ -264,9 +264,9 @@ const Home: React.FC = () => {
   const ctaRef = useFadeIn();
 
   return (
-    <main className="min-h-screen bg-bg overflow-x-hidden">
+    <main className="min-h-screen bg-bg">
       {/* ── Section 2: Hero ───────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center bg-grid-pattern">
+      <section className="relative min-h-[100dvh] pt-20 flex flex-col justify-center bg-grid-pattern">
         {/* Background gradient orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
@@ -281,7 +281,7 @@ const Home: React.FC = () => {
           <FloatingHex size={70} top="85%" left="50%" delay={1} opacity={0.04} />
         </div>
 
-        <div className="container-custom relative z-10 text-center py-24">
+        <div className="container-custom relative z-10 text-center py-12 lg:py-24">
           {/* Mono label */}
           <p className="mono-label text-[11px] text-accent mb-6 animate-fade-in">
             ⬡ CYBERSECURITY EXCELLENCE
