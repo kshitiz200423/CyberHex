@@ -150,7 +150,7 @@ interface SeverityConfig {
 }
 
 export const severityConfig: Record<FindingSeverity, SeverityConfig> = {
-  critical: {
+  CRITICAL: {
     label: 'Critical',
     color: '#EF4444',
     bg: 'bg-brand-red/10',
@@ -158,7 +158,7 @@ export const severityConfig: Record<FindingSeverity, SeverityConfig> = {
     dot: 'bg-brand-red',
     border: 'border-brand-red/20',
   },
-  high: {
+  HIGH: {
     label: 'High',
     color: '#F59E0B',
     bg: 'bg-brand-amber/10',
@@ -166,7 +166,7 @@ export const severityConfig: Record<FindingSeverity, SeverityConfig> = {
     dot: 'bg-brand-amber',
     border: 'border-brand-amber/20',
   },
-  medium: {
+  MEDIUM: {
     label: 'Medium',
     color: '#8B5CF6',
     bg: 'bg-brand-purple/10',
@@ -174,7 +174,7 @@ export const severityConfig: Record<FindingSeverity, SeverityConfig> = {
     dot: 'bg-brand-purple',
     border: 'border-brand-purple/20',
   },
-  low: {
+  LOW: {
     label: 'Low',
     color: '#3B82F6',
     bg: 'bg-accent/10',
@@ -182,7 +182,7 @@ export const severityConfig: Record<FindingSeverity, SeverityConfig> = {
     dot: 'bg-accent',
     border: 'border-accent/20',
   },
-  informational: {
+  INFORMATIONAL: {
     label: 'Info',
     color: '#8B9DC8',
     bg: 'bg-text-2/10',
@@ -203,35 +203,35 @@ interface StatusStyleConfig {
 }
 
 export const findingStatusConfig: Record<FindingStatus, StatusStyleConfig> = {
-  open: {
+  OPEN: {
     label: 'Open',
     color: '#EF4444',
     bg: 'bg-brand-red/10',
     text: 'text-brand-red',
     dot: 'bg-brand-red',
   },
-  in_progress: {
+  IN_PROGRESS: {
     label: 'In Progress',
     color: '#F59E0B',
     bg: 'bg-brand-amber/10',
     text: 'text-brand-amber',
     dot: 'bg-brand-amber',
   },
-  remediated: {
-    label: 'Remediated',
+  FIXED: {
+    label: 'Fixed',
     color: '#10B981',
     bg: 'bg-brand-green/10',
     text: 'text-brand-green',
     dot: 'bg-brand-green',
   },
-  accepted: {
+  ACCEPTED: {
     label: 'Accepted',
     color: '#3B82F6',
     bg: 'bg-accent/10',
     text: 'text-accent',
     dot: 'bg-accent',
   },
-  false_positive: {
+  FALSE_POSITIVE: {
     label: 'False Positive',
     color: '#8B9DC8',
     bg: 'bg-text-2/10',
@@ -243,47 +243,33 @@ export const findingStatusConfig: Record<FindingStatus, StatusStyleConfig> = {
 // ─── Engagement Status Configuration ──────────────────────────────────────
 
 export const engagementStatusConfig: Record<EngagementStatus, StatusStyleConfig> = {
-  draft: {
-    label: 'Draft',
+  SCHEDULED: {
+    label: 'Scheduled',
     color: '#8B9DC8',
     bg: 'bg-text-2/10',
     text: 'text-text-2',
     dot: 'bg-text-2',
   },
-  scoping: {
-    label: 'Scoping',
-    color: '#8B5CF6',
-    bg: 'bg-brand-purple/10',
-    text: 'text-brand-purple',
-    dot: 'bg-brand-purple',
-  },
-  active: {
-    label: 'Active',
+  IN_PROGRESS: {
+    label: 'In Progress',
     color: '#10B981',
     bg: 'bg-brand-green/10',
     text: 'text-brand-green',
     dot: 'bg-brand-green',
   },
-  review: {
-    label: 'Review',
+  IN_REVIEW: {
+    label: 'In Review',
     color: '#F59E0B',
     bg: 'bg-brand-amber/10',
     text: 'text-brand-amber',
     dot: 'bg-brand-amber',
   },
-  completed: {
-    label: 'Completed',
+  COMPLETE: {
+    label: 'Complete',
     color: '#3B82F6',
     bg: 'bg-accent/10',
     text: 'text-accent',
     dot: 'bg-accent',
-  },
-  cancelled: {
-    label: 'Cancelled',
-    color: '#EF4444',
-    bg: 'bg-brand-red/10',
-    text: 'text-brand-red',
-    dot: 'bg-brand-red',
   },
 } as const;
 
@@ -329,7 +315,7 @@ interface EngagementTypeConfig {
 }
 
 export const engagementTypeConfig: Record<EngagementType, EngagementTypeConfig> = {
-  pentest_web: {
+  VAPT: {
     label: 'Web Application Pentest',
     shortLabel: 'Web Pentest',
     color: '#3B82F6',
@@ -337,61 +323,53 @@ export const engagementTypeConfig: Record<EngagementType, EngagementTypeConfig> 
     text: 'text-accent',
     description: 'Comprehensive security assessment of web applications',
   },
-  pentest_mobile: {
-    label: 'Mobile Application Pentest',
-    shortLabel: 'Mobile Pentest',
+  AUDIT: {
+    label: 'Security Audit',
+    shortLabel: 'Audit',
     color: '#8B5CF6',
     bg: 'bg-brand-purple/10',
     text: 'text-brand-purple',
-    description: 'Security testing for iOS and Android applications',
+    description: 'Compliance audits (ISO 27001, CERT-In, etc.)',
   },
-  pentest_network: {
-    label: 'Network Penetration Test',
-    shortLabel: 'Network Pentest',
+  CONSULTANCY: {
+    label: 'Consultancy',
+    shortLabel: 'Consultancy',
     color: '#10B981',
     bg: 'bg-brand-green/10',
     text: 'text-brand-green',
-    description: 'Internal and external network infrastructure testing',
+    description: 'Security advisory and vCISO services',
   },
-  pentest_api: {
-    label: 'API Penetration Test',
-    shortLabel: 'API Pentest',
+  SOC: {
+    label: 'Managed SOC',
+    shortLabel: 'SOC',
     color: '#14B8A6',
     bg: 'bg-brand-teal/10',
     text: 'text-brand-teal',
-    description: 'REST, GraphQL, and gRPC API security assessment',
+    description: '24/7 security monitoring and response',
   },
-  red_team: {
-    label: 'Red Team Exercise',
-    shortLabel: 'Red Team',
+  TRAINING: {
+    label: 'Security Training',
+    shortLabel: 'Training',
     color: '#EF4444',
     bg: 'bg-brand-red/10',
     text: 'text-brand-red',
-    description: 'Adversary simulation with full-scope attack scenarios',
+    description: 'Security awareness and hands-on workshops',
   },
-  vuln_assessment: {
-    label: 'Vulnerability Assessment',
-    shortLabel: 'Vuln Assessment',
+  APPSEC: {
+    label: 'Application Security',
+    shortLabel: 'AppSec',
     color: '#F59E0B',
     bg: 'bg-brand-amber/10',
     text: 'text-brand-amber',
-    description: 'Automated and manual vulnerability scanning',
+    description: 'DevSecOps integration and secure code review',
   },
-  code_review: {
-    label: 'Secure Code Review',
-    shortLabel: 'Code Review',
+  RETEST: {
+    label: 'Retest',
+    shortLabel: 'Retest',
     color: '#60A5FA',
     bg: 'bg-accent-light/10',
     text: 'text-accent-light',
-    description: 'Manual source code analysis for security flaws',
-  },
-  cloud_audit: {
-    label: 'Cloud Security Audit',
-    shortLabel: 'Cloud Audit',
-    color: '#14B8A6',
-    bg: 'bg-brand-teal/10',
-    text: 'text-brand-teal',
-    description: 'AWS, Azure, GCP configuration and architecture review',
+    description: 'Retesting of previously identified vulnerabilities',
   },
 } as const;
 

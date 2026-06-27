@@ -1,4 +1,6 @@
 import React, { useState, useCallback } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { contactApi } from '../lib/api';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -71,10 +73,28 @@ const Contact: React.FC = () => {
     );
   }, []);
 
+  const [reference, setReference] = useState('');
+  const { mutate, isPending } = useMutation({
+    mutationFn: contactApi.submit,
+    onSuccess: (data: any) => {
+      setReference(data.referenceNumber || `AX-CONTACT-${Date.now().toString(36).toUpperCase().slice(0, 6)}`);
+      setSubmitted(true);
+    },
+    onError: () => {
+      alert('There was an error submitting your request. Please try again.');
+    }
+  });
+
   const onSubmit = useCallback((data: ContactForm) => {
-    const ref = `AX-CONTACT-${Date.now().toString(36).toUpperCase()}`;
-    setSubmitted(true);
-  }, []);
+    mutate({
+      ...data,
+      orgSize: data.orgSize as any,
+      budget: data.budget as any,
+      timeline: data.timeline as any,
+      services: data.services as any,
+      notes: data.notes || '',
+    });
+  }, [mutate]);
 
   if (submitted) {
     return (
@@ -87,7 +107,7 @@ const Contact: React.FC = () => {
           </div>
           <h2 className="font-display text-3xl font-bold text-text mb-3">Request Submitted!</h2>
           <p className="text-text-2 mb-4">Thank you for reaching out. Our team will contact you within 4 hours.</p>
-          <p className="font-mono text-sm text-accent mb-8">Reference: AX-CONTACT-{Date.now().toString(36).toUpperCase().slice(0, 6)}</p>
+          <p className="font-mono text-sm text-accent mb-8">Reference: {reference}</p>
           <a href="/" className="btn-primary">Back to Home</a>
         </div>
       </div>
@@ -262,7 +282,9 @@ const Contact: React.FC = () => {
                   {step < 3 ? (
                     <button type="button" onClick={nextStep} className="btn-primary">Next →</button>
                   ) : (
-                    <button type="submit" className="btn-primary">Submit Request</button>
+                    <button type="submit" className="btn-primary" disabled={isPending}>
+                      {isPending ? 'Submitting...' : 'Submit Request'}
+                    </button>
                   )}
                 </div>
               </form>

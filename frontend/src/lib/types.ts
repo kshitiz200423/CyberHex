@@ -9,50 +9,48 @@ export const USER_ROLES = ['admin', 'analyst', 'client'] as const;
 export type UserRole = (typeof USER_ROLES)[number];
 
 export const ENGAGEMENT_TYPES = [
-  'pentest_web',
-  'pentest_mobile',
-  'pentest_network',
-  'pentest_api',
-  'red_team',
-  'vuln_assessment',
-  'code_review',
-  'cloud_audit',
+  'VAPT',
+  'AUDIT',
+  'CONSULTANCY',
+  'SOC',
+  'TRAINING',
+  'APPSEC',
+  'RETEST',
 ] as const;
 export type EngagementType = (typeof ENGAGEMENT_TYPES)[number];
 
 export const ENGAGEMENT_STATUSES = [
-  'draft',
-  'scoping',
-  'active',
-  'review',
-  'completed',
-  'cancelled',
+  'SCHEDULED',
+  'IN_PROGRESS',
+  'IN_REVIEW',
+  'COMPLETE',
 ] as const;
 export type EngagementStatus = (typeof ENGAGEMENT_STATUSES)[number];
 
 export const FINDING_SEVERITIES = [
-  'critical',
-  'high',
-  'medium',
-  'low',
-  'informational',
+  'CRITICAL',
+  'HIGH',
+  'MEDIUM',
+  'LOW',
+  'INFORMATIONAL',
 ] as const;
 export type FindingSeverity = (typeof FINDING_SEVERITIES)[number];
 
 export const FINDING_STATUSES = [
-  'open',
-  'in_progress',
-  'remediated',
-  'accepted',
-  'false_positive',
+  'OPEN',
+  'IN_PROGRESS',
+  'FIXED',
+  'ACCEPTED',
+  'FALSE_POSITIVE',
 ] as const;
 export type FindingStatus = (typeof FINDING_STATUSES)[number];
 
 export const REPORT_TYPES = [
-  'final',
-  'draft',
-  'executive_summary',
-  'retest',
+  'TECHNICAL',
+  'EXECUTIVE',
+  'GAP_ANALYSIS',
+  'CERTIFICATE',
+  'RETEST',
 ] as const;
 export type ReportType = (typeof REPORT_TYPES)[number];
 
@@ -155,6 +153,8 @@ export interface Finding {
   status: FindingStatus;
   fixedAt: string | null;
   engagementId: string;
+  createdAt: string;
+  updatedAt: string;
   engagement?: Pick<Engagement, 'id' | 'refId' | 'name'>;
   updates?: FindingUpdate[];
 }
