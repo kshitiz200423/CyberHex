@@ -114,7 +114,7 @@ const PortalLayout: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-bg flex">
+    <div className="min-h-screen bg-bg flex overflow-x-hidden">
       {/* ─── Sidebar ──────────────────────────────────────── */}
       <aside
         className={`fixed top-0 left-0 bottom-0 z-40 bg-bg-2 border-r border-border flex flex-col transition-all duration-300 ${

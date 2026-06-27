@@ -43,7 +43,7 @@ const PublicLayout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg">
+    <div className="min-h-screen bg-bg overflow-x-hidden">
       {/* ─── Navigation ─────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -257,7 +257,7 @@ const PublicLayout: React.FC = () => {
             <p className="text-xs text-text-3 font-mono">
               © {new Date().getFullYear()} Auronix Technologies. All rights reserved.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap justify-center items-center gap-4">
               <span className="mono-label text-[9px] text-text-3">CERT-IN EMPANELLED</span>
               <span className="text-text-3">·</span>
               <span className="mono-label text-[9px] text-text-3">ISO 27001</span>

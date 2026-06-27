@@ -264,7 +264,7 @@ const Home: React.FC = () => {
   const ctaRef = useFadeIn();
 
   return (
-    <main className="min-h-screen bg-bg overflow-hidden">
+    <main className="min-h-screen bg-bg overflow-x-hidden">
       {/* ── Section 2: Hero ───────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center bg-grid-pattern">
         {/* Background gradient orbs */}
@@ -313,8 +313,7 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
-          {/* Metrics row */}
-          <div className="flex items-center justify-center gap-12 sm:gap-20">
+          <div className="flex flex-wrap items-center justify-center gap-12 sm:gap-20">
             {metrics.map((m) => (
               <AnimatedMetric key={m.label} value={m.value} label={m.label} />
             ))}
@@ -466,8 +465,7 @@ const Home: React.FC = () => {
             Schedule Free Consultation
           </Link>
 
-          {/* Trust badges */}
-          <div className="flex items-center justify-center gap-6 sm:gap-10 mt-12">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-10 mt-12">
             {trustBadges.map((badge) => (
               <div
                 key={badge}
