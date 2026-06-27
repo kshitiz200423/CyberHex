@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import StatusBar from '@/components/ui/StatusBar';
 import Marquee from '@/components/ui/Marquee';
 import ServiceCard from '@/components/ui/ServiceCard';
 import AnimatedTerminal from '@/components/ui/AnimatedTerminal';
@@ -266,9 +265,6 @@ const Home: React.FC = () => {
 
   return (
     <main className="min-h-screen bg-bg overflow-hidden">
-      {/* ── Section 1: Status Bar ─────────────────────────────── */}
-      <StatusBar />
-
       {/* ── Section 2: Hero ───────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center bg-grid-pattern">
         {/* Background gradient orbs */}
