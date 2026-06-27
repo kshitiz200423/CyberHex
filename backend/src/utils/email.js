@@ -1,71 +1,25 @@
 // ═══════════════════════════════════════════════════════════════
-// Auronix Technologies — Email Utility
-// ═══════════════════════════════════════════════════════════════
-// Priority: Resend API → SMTP (Nodemailer) → Console (dev only)
+// Auronix Technologies — Email Utility (Nodemailer SMTP only)
 // ═══════════════════════════════════════════════════════════════
 
 const nodemailer = require('nodemailer');
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const EMAIL_FROM = process.env.EMAIL_FROM || 'Auronix Technologies <noreply@auronix.in>';
-const IS_DEV = process.env.NODE_ENV === 'development';
+const ADMIN_EMAIL = 'contact@auronixtechnologies.com';
+const EMAIL_FROM = process.env.EMAIL_FROM || `Auronix Technologies <${ADMIN_EMAIL}>`;
 
 /**
- * Send an email using available provider
- * @param {Object} options
- * @param {string} options.to - Recipient email
- * @param {string} options.subject - Email subject
- * @param {string} options.html - HTML body
+ * Send an email via SMTP (Gmail / Google Workspace compatible)
  */
 async function sendEmail({ to, subject, html }) {
-  // Try Resend first
-  if (RESEND_API_KEY) {
-    return sendViaResend({ to, subject, html });
+  // SMTP must be configured
+  if (!process.env.SMTP_HOST && !process.env.SMTP_USER) {
+    console.warn('[Email] SMTP not configured. Email NOT sent to:', to);
+    console.warn('[Email] Subject:', subject);
+    return { provider: 'none', messageId: `not-sent-${Date.now()}` };
   }
 
-  // Try SMTP
-  if (process.env.SMTP_HOST) {
-    return sendViaSMTP({ to, subject, html });
-  }
-
-  // Development fallback
-  if (IS_DEV) {
-    process.stderr.write(`[Auronix Email] To: ${to}\n`);
-    process.stderr.write(`[Auronix Email] Subject: ${subject}\n`);
-    process.stderr.write(`[Auronix Email] Body length: ${html.length} chars\n`);
-    return { provider: 'console', messageId: `dev-${Date.now()}` };
-  }
-
-  throw new Error('No email provider configured. Set RESEND_API_KEY or SMTP_HOST.');
-}
-
-async function sendViaResend({ to, subject, html }) {
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: EMAIL_FROM,
-      to: Array.isArray(to) ? to : [to],
-      subject,
-      html,
-    }),
-  });
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({}));
-    throw new Error(`Resend API error: ${response.status} - ${error.message || 'Unknown'}`);
-  }
-
-  const data = await response.json();
-  return { provider: 'resend', messageId: data.id };
-}
-
-async function sendViaSMTP({ to, subject, html }) {
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: parseInt(process.env.SMTP_PORT, 10) || 587,
     secure: parseInt(process.env.SMTP_PORT, 10) === 465,
     auth: {
@@ -81,6 +35,7 @@ async function sendViaSMTP({ to, subject, html }) {
     html,
   });
 
+  console.log('[Email] Sent to:', to, 'MessageId:', info.messageId);
   return { provider: 'smtp', messageId: info.messageId };
 }
 
