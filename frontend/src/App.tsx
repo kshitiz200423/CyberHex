@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import PublicLayout from '@/components/layout/PublicLayout';
 import PortalLayout from '@/components/layout/PortalLayout';
+import { useAuthStore } from '@/lib/store';
 
 // ═══════════════════════════════════════════════════════════
 // Lazy-loaded pages — route-level code splitting
@@ -36,8 +37,7 @@ const Settings = lazy(() => import('@/pages/portal/Settings'));
 // ═══════════════════════════════════════════════════════════
 
 const RequireAuth: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // TODO: Replace with actual Zustand auth check
-  const isAuthenticated = true; // Mock — always authenticated for dev
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated());
   if (!isAuthenticated) {
     return <Navigate to="/portal/login" replace />;
   }
@@ -48,9 +48,8 @@ const RequireAdmin: React.FC<{ children: React.ReactNode; roles?: string[] }> = 
   children,
   roles = ['ADMIN'],
 }) => {
-  // TODO: Replace with actual Zustand role check
-  const userRole = 'ADMIN'; // Mock
-  if (!roles.includes(userRole)) {
+  const userRole = useAuthStore((s) => s.user?.role);
+  if (!userRole || !roles.includes(userRole)) {
     return <Navigate to="/portal/dashboard" replace />;
   }
   return <>{children}</>;

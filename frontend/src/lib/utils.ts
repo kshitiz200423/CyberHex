@@ -283,19 +283,19 @@ interface RoleConfig {
 }
 
 export const roleConfig: Record<UserRole, RoleConfig> = {
-  admin: {
+  ADMIN: {
     label: 'Administrator',
     color: '#EF4444',
     bg: 'bg-brand-red/10',
     text: 'text-brand-red',
   },
-  analyst: {
+  ANALYST: {
     label: 'Security Analyst',
     color: '#8B5CF6',
     bg: 'bg-brand-purple/10',
     text: 'text-brand-purple',
   },
-  client: {
+  CLIENT: {
     label: 'Client',
     color: '#3B82F6',
     bg: 'bg-accent/10',

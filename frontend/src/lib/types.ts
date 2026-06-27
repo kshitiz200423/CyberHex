@@ -5,7 +5,7 @@
 
 // ─── Enum Constants ────────────────────────────────────────────────────────
 
-export const USER_ROLES = ['admin', 'analyst', 'client'] as const;
+export const USER_ROLES = ['ADMIN', 'ANALYST', 'CLIENT'] as const;
 export type UserRole = (typeof USER_ROLES)[number];
 
 export const ENGAGEMENT_TYPES = [
@@ -240,10 +240,10 @@ export interface PaginatedResponse<T> {
 // ─── Auth Types ────────────────────────────────────────────────────────────
 
 export interface LoginResponse {
-  requiresTwoFactor: boolean;
-  tempToken?: string;
-  user?: User;
-  accessToken?: string;
+  requires2fa: boolean;
+  partialToken?: string;
+  user: User;
+  accessToken: string;
 }
 
 export interface TokenResponse {
@@ -286,7 +286,7 @@ export interface LoginInput {
 
 export interface Verify2faInput {
   code: string;
-  tempToken: string;
+  partialToken: string;
 }
 
 export interface CreateEngagementInput {

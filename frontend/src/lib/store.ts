@@ -54,15 +54,15 @@ export const useAuthStore = create<AuthState>()(
         return state.user !== null && state.accessToken !== null;
       },
 
-      isAdmin: () => get().user?.role === 'admin',
-      isAnalyst: () => get().user?.role === 'analyst',
-      isClient: () => get().user?.role === 'client',
+      isAdmin: () => get().user?.role === 'ADMIN',
+      isAnalyst: () => get().user?.role === 'ANALYST',
+      isClient: () => get().user?.role === 'CLIENT',
     }),
     {
       name: 'auronix-auth',
       storage: createJSONStorage(() => localStorage),
       // Only persist user metadata — accessToken stays in memory only
-      partialize: (state) => ({ user: state.user }),
+      partialize: (state) => ({ user: state.user, accessToken: state.accessToken }),
     },
   ),
 );

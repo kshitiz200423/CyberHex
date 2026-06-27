@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
  * Auronix Technologies — Portal Login Page
  * Standalone login page (no portal layout wrapper).
- * Email/password + 2FA flow with mock auth.
+ * Email/password + 2FA flow with real backend auth.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 import React, { useState, useRef, useCallback } from 'react';
@@ -12,7 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Logo from '@/components/ui/Logo';
 import { FieldWrap, Input } from '@/components/ui/FormField';
 import { useAuthStore } from '@/lib/store';
-import type { User } from '@/lib/types';
+import { authApi } from '@/lib/api';
 
 // ─── Schemas ──────────────────────────────────────────────────────────────
 
@@ -22,28 +22,6 @@ const loginSchema = z.object({
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
-
-// ─── Mock Data ────────────────────────────────────────────────────────────
-
-const MOCK_USER: User = {
-  id: 'usr_01',
-  email: 'admin@auronix.io',
-  firstName: 'Marcus',
-  lastName: 'Chen',
-  role: 'admin',
-  phone: '+1 555-0142',
-  totpEnabled: true,
-  twoFactorVerified: true,
-  lastLogin: '2026-06-07T06:30:00Z',
-  orgId: 'org_01',
-  organisation: {
-    id: 'org_01',
-    name: 'Auronix Technologies',
-    domain: 'auronix.io',
-    industry: 'Cybersecurity',
-    contactEmail: 'contact@auronix.io',
-  },
-};
 
 const SECURITY_FEATURES = [
   { label: 'End-to-end encrypted communications', icon: '🔒' },
@@ -64,6 +42,7 @@ const Login: React.FC = () => {
   const [otpValues, setOtpValues] = useState<string[]>(['', '', '', '', '', '']);
   const [otpError, setOtpError] = useState<string | null>(null);
   const [isVerifying, setIsVerifying] = useState(false);
+  const [partialToken, setPartialToken] = useState<string | null>(null);
 
   const otpRefs = useRef<(HTMLInputElement | null)[]>([]);
 
@@ -83,21 +62,24 @@ const Login: React.FC = () => {
       setIsSubmitting(true);
       setLoginError(null);
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      try {
+        const response = await authApi.login({ email: data.email, password: data.password });
 
-      if (data.email === 'admin@auronix.io' && data.password === 'password123') {
-        // Mock: account has 2FA enabled
-        setStep('2fa');
-        setIsSubmitting(false);
-        // Focus first OTP input after transition
-        setTimeout(() => otpRefs.current[0]?.focus(), 100);
-      } else if (data.email && data.password.length >= 8) {
-        // No 2FA path — direct login for demo
-        setAuth(MOCK_USER, 'mock-jwt-token-' + Date.now());
-        navigate('/portal/dashboard', { replace: true });
-      } else {
-        setLoginError('Invalid email or password. Please try again.');
+        if (response.requires2fa) {
+          // Backend says 2FA is needed
+          setPartialToken(response.partialToken || null);
+          setStep('2fa');
+          setIsSubmitting(false);
+          setTimeout(() => otpRefs.current[0]?.focus(), 100);
+        } else {
+          // Direct login — no 2FA
+          setAuth(response.user, response.accessToken);
+          navigate('/portal/dashboard', { replace: true });
+        }
+      } catch (err: any) {
+        const message =
+          err?.response?.data?.message || 'Invalid email or password. Please try again.';
+        setLoginError(message);
         setIsSubmitting(false);
       }
     },
@@ -154,17 +136,17 @@ const Login: React.FC = () => {
     setIsVerifying(true);
     setOtpError(null);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-
-    if (code === '123456' || code.length === 6) {
-      setAuth(MOCK_USER, 'mock-jwt-token-' + Date.now());
+    try {
+      const response = await authApi.verify2fa({ code, partialToken: partialToken || '' });
+      setAuth(response.user, response.accessToken);
       navigate('/portal/dashboard', { replace: true });
-    } else {
-      setOtpError('Invalid verification code. Please try again.');
+    } catch (err: any) {
+      const message =
+        err?.response?.data?.message || 'Invalid verification code. Please try again.';
+      setOtpError(message);
       setIsVerifying(false);
     }
-  }, [otpValues, navigate, setAuth]);
+  }, [otpValues, navigate, setAuth, partialToken]);
 
   // ── Render ───────────────────────────────────────────────────────────
 
